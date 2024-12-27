@@ -1,0 +1,13 @@
+@import '_reset.css';
+@import '_variables.css';
+@import '_utilities.css';
+
+@font-face {
+    font-family: 'karabinE';
+    src: url('/fonts/karabinE-subset.svg') format('svg');
+    font-display: swap;
+}
+
+a {
+    color: var(--c-primary-1);
+}
