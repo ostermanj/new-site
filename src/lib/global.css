@@ -7,7 +7,9 @@
     src: url('/fonts/karabinE-subset.svg') format('svg');
     font-display: swap;
 }
-
+body {
+    background-color: rgba(135, 206, 235, 0.5);
+}
 a {
     color: var(--c-primary-1);
 }
