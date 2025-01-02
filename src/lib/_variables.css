@@ -1,3 +1,6 @@
 :root {
     --c-primary-1: oklch(0.6 0.3 330.31);
+    --c-primary-2: oklch(from var(--c-primary-1) 0.35 c h );
+
+    --l-max-column-width: 46.25rem;
 }

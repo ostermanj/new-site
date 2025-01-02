@@ -13,7 +13,6 @@
         <div aria-hidden="true" class="svg-wrapper">
             <NameImage></NameImage>
         </div>
-        <div class="progress"></div>
     </h1>
 </header>
 <section>
@@ -27,15 +26,23 @@
     @keyframes test {
         0% {
             transform: scaleY(1) scaleX(1);
-            filter: saturate(1) hue-rotate(0deg);
+            filter: drop-shadow(0px 0px 0px oklch(from skyblue calc(l - 0.2) c h / alpha));
         }
         75% {
-            transform: scaleY(2.5) scaleX(0.75);
-            filter: saturate(1.5) hue-rotate(90deg);
+            transform: scaleY(2.5) scaleX(1.5);
+            filter: drop-shadow(-20px 20px 3px oklch(from skyblue l c h / alpha));
         }
         100% {
-            transform: scaleY(2.5) scaleX(0.75) translateY(-100%);
-            filter: saturate(1.5) hue-rotate(90deg);
+            transform: scaleY(2.5) scaleX(1.5) translateY(-100%);
+            filter: drop-shadow(-20px 20px 3px oklch(from skyblue l c h / alpha));
+        }
+    }
+    @keyframes color {
+        from {
+            color: var(--c-primary-2)
+        }
+        to {
+            color: var(--c-primary-1)
         }
     }
 
@@ -48,44 +55,31 @@
         }
     }
 
-    @keyframes progress {
-        from {
-            transform: scaleY(0);
-        }
-        to {
-            transform: scaleY(1);
-        }
-    }
-    
     header {
         display: flex;
         align-items: end;
         justify-content: end;
-        color: var(--c-primary-1);
+        color: var(--c-primary-2);
         height: 100dvh;
-        outline: 1px solid magenta;
-        max-width: 740px;
         margin-inline: auto;
         
     }
     h1 {
         display: flex;
         justify-content: end;
-        width: 101.5%;
+        width: 100%;
     }
     .svg-wrapper {
         display: flex;
         align-items: end;
-        width: 100%;
-        margin-bottom: -2.4%;
-        margin-inline-end: -1.5%;
+        width: 55%;
         transform-origin: right bottom;
     }
     section {
         font-size: 1.2rem;
         line-height: 1.428;
         padding: 1lh;
-        max-width: 740px;
+        max-width: 46.25rem;
         margin-inline: auto;
 
     }  
@@ -97,46 +91,42 @@
     }
 
 
-    @media (min-aspect-ratio: 1/1){
+    /* @media (min-aspect-ratio: 1/1){
         .svg-wrapper {
             width: 80%;
-            margin-bottom: -1.9%;
-            margin-inline-end: -1.2%;
         }
     }
     @media (min-aspect-ratio: 9/6){
         .svg-wrapper {
             width: 75%;
-            margin-inline-end: -1.2%;
         }
     }
     @media (min-aspect-ratio: 5/3){
         .svg-wrapper {
             width: 70%;
-            margin-bottom: -1.7%;
-            margin-inline-end: -1.1%;
         }
     }
     @media (min-aspect-ratio: 11/6){
         .svg-wrapper {
             width: 65%;
-            margin-bottom: -1.6%;
-            margin-inline-end: -1%;
         }
     }
     @media (min-aspect-ratio: 2/1){
         .svg-wrapper {
             width: 50%;
-            margin-bottom: -1.2%;
-            margin-inline-end: -0.8%;
         }
-    }
+    } */
     /* TODO: change this to something else */
     @supports ((animation-timeline: scroll()) and (animation-range: 0% 100%)) {
     /* @supports (nonexistent: 100%) { */
         header { 
             height: 200dvh;
             view-timeline-name: --observerTimeline;
+            animation-name: color;
+            animation-fill-mode: both;
+            animation-timeline: --observerTimeline;
+            animation-timing-function: linear;
+            animation-range: entry 100% exit 50%;
         }
         .background {
             position: fixed;
@@ -148,28 +138,13 @@
             animation-range: exit 0% exit 100%;
             animation-timing-function: ease-in;
         }
+        
         h1 {
             position: sticky;
             inset-inline-end: 0;
             inset-block-end: 0;
             overflow: hidden;
             height: 100dvh;
-        }
-        .progress {
-            position: fixed;
-            inset-inline-start: 0;
-            inset-block-end: 0;
-            height: 100dvh;
-            background-color: black;
-            width: 30px;
-            opacity: 0.2;
-            animation-name: progress;
-            animation-fill-mode: both;
-            animation-timeline: --observerTimeline;
-            animation-timing-function: linear;
-            animation-range: exit 0% exit 50%;
-            transform-origin: bottom left;
-            
         }
         .svg-wrapper {
             transform-origin: bottom right;
@@ -178,7 +153,7 @@
             animation-fill-mode: both;
             animation-timeline: --observerTimeline;
             animation-range: entry 100% exit 50%;
-            animation-timing-function: ease-in;
+            animation-timing-function: linear;
         }
         section {
             margin-block-start: -20dvh;

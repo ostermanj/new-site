@@ -1,12 +1,13 @@
 <nav>
     <div class="nav-inner">
+        <a class="home-item" aria-label="home" href="/"><Sprite id="initials" height={48} width={50} /></a>
         <menu class="internal">
-            <li class="home-item"><a aria-label="home" href="/"><Sprite id="initials" height={48} width={50} /></a></li>
             <li><a href="/">About</a></li>
             <li><a href="/">Blog posts</a></li>
             <li><a href="/">Projects</a></li>
             <li><a href="/">Peace Corps</a></li>
         </menu>
+    </div>
         <menu class="external">
             <li>
                 <a title="GitHub" href="//github.com/ostermanj">
@@ -30,7 +31,6 @@
             <!-- TODO: PUBLIC PATH -->
             <li><a data-sveltekit-reload class="bw-0" title="RSS" href="/rss"><span class="u-visually-hidden">RSS</span> <Sprite width={18} height={18} id="rss" offset={-2} /></a></li>
         </menu>
-    </div>
 </nav>
 <style>
     nav {
@@ -43,9 +43,12 @@
        width: 100%;
        z-index: 1;
     }
+    a {
+            color: var(--c-primary-2);
+    }
     .nav-inner {
-        max-width: 46.25rem;
-        margin-inline: auto;
+        display: flex;
+        border-block-end: 1px solid currentColor;
     }
     menu {
         display: flex;
@@ -55,12 +58,16 @@
         padding-inline-end: 5px;
         padding-block-end: 5px;
         padding-block-start: 5px;
-        border-inline-end: 1px solid currentColor;
-        border-block-end: 1px solid currentColor;
+        border-inline-end: 1px solid var(--c-primary-1);
+        /* border-block-end: 1px solid currentColor; */
     }
-    .home-item a {
+    .home-item {
         display: flex;
         align-items: center;
+    }
+    menu.internal {
+        flex-grow: 1;
+        justify-content: space-evenly;
     }
     menu.internal li {
         display: flex;
@@ -68,11 +75,12 @@
     }
     
     menu.external {
-        border-inline-start: 1px solid currentColor;
         padding-block-start: 1rem;
         align-items: center;
         flex-direction: column;
-        width: 50px;
+        width: 56px;
+        border-inline-end: 1px solid currentColor;
+        border-block-end: 1px solid currentColor;
     }
     a {
         text-decoration: none;
