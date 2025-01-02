@@ -7,8 +7,13 @@
     src: url('/fonts/karabinE-subset.svg') format('svg');
     font-display: swap;
 }
+@font-face {
+    font-family: 'PassionOne';
+    src: url('/fonts/Passion-One-latin.woff2') format('woff2');
+    font-display: swap;
+  }
 body {
-    background-color: rgba(135, 206, 235, 0.5);
+    background-color: white
 }
 a {
     color: var(--c-primary-1);

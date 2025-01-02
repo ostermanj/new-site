@@ -1,51 +1,59 @@
 <script lang="ts">
+	import MainNavigation from "./MainNavigation.svelte";
 	import NameImage from "./NameImage.svelte";
+    import SpriteFile from "./SpriteFile.svelte";
 </script>
 <header>
+    <div class="nav">
+        <MainNavigation></MainNavigation>
+    </div>
+    <div class="background"></div>
     <h1>
         <span class="u-visually-hidden">john osterman</span>
         <div aria-hidden="true" class="svg-wrapper">
             <NameImage></NameImage>
         </div>
+        <div class="progress"></div>
     </h1>
 </header>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam magnam, rem neque vitae esse tenetur fugiat natus molestias hic laborum saepe incidunt explicabo, eum officia deleniti! Ab, sed. Tenetur asperiores eaque in nesciunt deserunt? Explicabo eos delectus voluptate veniam laboriosam incidunt, error vero, esse maxime numquam quam quasi reprehenderit quaerat odio veritatis laudantium, obcaecati neque porro nisi deserunt minus magni laborum odit consequuntur. Magnam enim saepe aperiam perferendis ipsum doloremque delectus aliquam facere architecto laudantium voluptas quam harum error voluptatem odio earum, eos rem commodi. Mollitia a distinctio explicabo rerum dolorum ea, doloremque perspiciatis vel enim voluptatem, quos quia consequatur?</p>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam magnam, rem neque vitae esse tenetur fugiat natus molestias hic laborum saepe incidunt explicabo, eum officia deleniti! Ab, sed. Tenetur asperiores eaque in nesciunt deserunt? Explicabo eos delectus voluptate veniam laboriosam incidunt, error vero, esse maxime numquam quam quasi reprehenderit quaerat odio veritatis laudantium, obcaecati neque porro nisi deserunt minus magni laborum odit consequuntur. Magnam enim saepe aperiam perferendis ipsum doloremque delectus aliquam facere architecto laudantium voluptas quam harum error voluptatem odio earum, eos rem commodi. Mollitia a distinctio explicabo rerum dolorum ea, doloremque perspiciatis vel enim voluptatem, quos quia consequatur?</p>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam magnam, rem neque vitae esse tenetur fugiat natus molestias hic laborum saepe incidunt explicabo, eum officia deleniti! Ab, sed. Tenetur asperiores eaque in nesciunt deserunt? Explicabo eos delectus voluptate veniam laboriosam incidunt, error vero, esse maxime numquam quam quasi reprehenderit quaerat odio veritatis laudantium, obcaecati neque porro nisi deserunt minus magni laborum odit consequuntur. Magnam enim saepe aperiam perferendis ipsum doloremque delectus aliquam facere architecto laudantium voluptas quam harum error voluptatem odio earum, eos rem commodi. Mollitia a distinctio explicabo rerum dolorum ea, doloremque perspiciatis vel enim voluptatem, quos quia consequatur?</p>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam magnam, rem neque vitae esse tenetur fugiat natus molestias hic laborum saepe incidunt explicabo, eum officia deleniti! Ab, sed. Tenetur asperiores eaque in nesciunt deserunt? Explicabo eos delectus voluptate veniam laboriosam incidunt, error vero, esse maxime numquam quam quasi reprehenderit quaerat odio veritatis laudantium, obcaecati neque porro nisi deserunt minus magni laborum odit consequuntur. Magnam enim saepe aperiam perferendis ipsum doloremque delectus aliquam facere architecto laudantium voluptas quam harum error voluptatem odio earum, eos rem commodi. Mollitia a distinctio explicabo rerum dolorum ea, doloremque perspiciatis vel enim voluptatem, quos quia consequatur?</p>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam magnam, rem neque vitae esse tenetur fugiat natus molestias hic laborum saepe incidunt explicabo, eum officia deleniti! Ab, sed. Tenetur asperiores eaque in nesciunt deserunt? Explicabo eos delectus voluptate veniam laboriosam incidunt, error vero, esse maxime numquam quam quasi reprehenderit quaerat odio veritatis laudantium, obcaecati neque porro nisi deserunt minus magni laborum odit consequuntur. Magnam enim saepe aperiam perferendis ipsum doloremque delectus aliquam facere architecto laudantium voluptas quam harum error voluptatem odio earum, eos rem commodi. Mollitia a distinctio explicabo rerum dolorum ea, doloremque perspiciatis vel enim voluptatem, quos quia consequatur?</p>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam magnam, rem neque vitae esse tenetur fugiat natus molestias hic laborum saepe incidunt explicabo, eum officia deleniti! Ab, sed. Tenetur asperiores eaque in nesciunt deserunt? Explicabo eos delectus voluptate veniam laboriosam incidunt, error vero, esse maxime numquam quam quasi reprehenderit quaerat odio veritatis laudantium, obcaecati neque porro nisi deserunt minus magni laborum odit consequuntur. Magnam enim saepe aperiam perferendis ipsum doloremque delectus aliquam facere architecto laudantium voluptas quam harum error voluptatem odio earum, eos rem commodi. Mollitia a distinctio explicabo rerum dolorum ea, doloremque perspiciatis vel enim voluptatem, quos quia consequatur?</p>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam magnam, rem neque vitae esse tenetur fugiat natus molestias hic laborum saepe incidunt explicabo, eum officia deleniti! Ab, sed. Tenetur asperiores eaque in nesciunt deserunt? Explicabo eos delectus voluptate veniam laboriosam incidunt, error vero, esse maxime numquam quam quasi reprehenderit quaerat odio veritatis laudantium, obcaecati neque porro nisi deserunt minus magni laborum odit consequuntur. Magnam enim saepe aperiam perferendis ipsum doloremque delectus aliquam facere architecto laudantium voluptas quam harum error voluptatem odio earum, eos rem commodi. Mollitia a distinctio explicabo rerum dolorum ea, doloremque perspiciatis vel enim voluptatem, quos quia consequatur?</p>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam magnam, rem neque vitae esse tenetur fugiat natus molestias hic laborum saepe incidunt explicabo, eum officia deleniti! Ab, sed. Tenetur asperiores eaque in nesciunt deserunt? Explicabo eos delectus voluptate veniam laboriosam incidunt, error vero, esse maxime numquam quam quasi reprehenderit quaerat odio veritatis laudantium, obcaecati neque porro nisi deserunt minus magni laborum odit consequuntur. Magnam enim saepe aperiam perferendis ipsum doloremque delectus aliquam facere architecto laudantium voluptas quam harum error voluptatem odio earum, eos rem commodi. Mollitia a distinctio explicabo rerum dolorum ea, doloremque perspiciatis vel enim voluptatem, quos quia consequatur?</p>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam magnam, rem neque vitae esse tenetur fugiat natus molestias hic laborum saepe incidunt explicabo, eum officia deleniti! Ab, sed. Tenetur asperiores eaque in nesciunt deserunt? Explicabo eos delectus voluptate veniam laboriosam incidunt, error vero, esse maxime numquam quam quasi reprehenderit quaerat odio veritatis laudantium, obcaecati neque porro nisi deserunt minus magni laborum odit consequuntur. Magnam enim saepe aperiam perferendis ipsum doloremque delectus aliquam facere architecto laudantium voluptas quam harum error voluptatem odio earum, eos rem commodi. Mollitia a distinctio explicabo rerum dolorum ea, doloremque perspiciatis vel enim voluptatem, quos quia consequatur?</p>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam magnam, rem neque vitae esse tenetur fugiat natus molestias hic laborum saepe incidunt explicabo, eum officia deleniti! Ab, sed. Tenetur asperiores eaque in nesciunt deserunt? Explicabo eos delectus voluptate veniam laboriosam incidunt, error vero, esse maxime numquam quam quasi reprehenderit quaerat odio veritatis laudantium, obcaecati neque porro nisi deserunt minus magni laborum odit consequuntur. Magnam enim saepe aperiam perferendis ipsum doloremque delectus aliquam facere architecto laudantium voluptas quam harum error voluptatem odio earum, eos rem commodi. Mollitia a distinctio explicabo rerum dolorum ea, doloremque perspiciatis vel enim voluptatem, quos quia consequatur?</p>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam magnam, rem neque vitae esse tenetur fugiat natus molestias hic laborum saepe incidunt explicabo, eum officia deleniti! Ab, sed. Tenetur asperiores eaque in nesciunt deserunt? Explicabo eos delectus voluptate veniam laboriosam incidunt, error vero, esse maxime numquam quam quasi reprehenderit quaerat odio veritatis laudantium, obcaecati neque porro nisi deserunt minus magni laborum odit consequuntur. Magnam enim saepe aperiam perferendis ipsum doloremque delectus aliquam facere architecto laudantium voluptas quam harum error voluptatem odio earum, eos rem commodi. Mollitia a distinctio explicabo rerum dolorum ea, doloremque perspiciatis vel enim voluptatem, quos quia consequatur?</p>
+<section>
+    <p>👋🏻 Hello. I am a web developer specializing in performance, accessibility, and data visualization. I work full-time for the US Holocaust Memorial Museum but am occasionally available for side projects.</p>
+    <div class="placeholder"></div>
+</section>
+<footer>
+    <SpriteFile></SpriteFile>
+</footer>
 <style>
     @keyframes test {
         0% {
             transform: scaleY(1) scaleX(1);
-            opacity: 1;
             filter: saturate(1) hue-rotate(0deg);
         }
-        34% {
-            transform: scaleY(1) scaleX(1);
-            opacity: 1;
-            filter: saturate(1) hue-rotate(0deg);
-        }
-        60% {
+        75% {
             transform: scaleY(2.5) scaleX(0.75);
-            opacity: 1;
-            filter: saturate(1.5) hue-rotate(90deg);
-        }
-        85% {
-            transform: rotate(90deg) scaleY(2.5) scaleX(0.75);
-            opacity: 1;
             filter: saturate(1.5) hue-rotate(90deg);
         }
         100% {
-            transform: rotate(90deg) scaleY(2.5) scaleX(0.75);
-            opacity: 1;
+            transform: scaleY(2.5) scaleX(0.75) translateY(-100%);
             filter: saturate(1.5) hue-rotate(90deg);
+        }
+    }
+
+    @keyframes fade-to-white {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }
+    }
+
+    @keyframes progress {
+        from {
+            transform: scaleY(0);
+        }
+        to {
+            transform: scaleY(1);
         }
     }
     
@@ -53,11 +61,11 @@
         display: flex;
         align-items: end;
         justify-content: end;
-        background-color: oklch(0.82 0.08 225.77);
         color: var(--c-primary-1);
         height: 100dvh;
         outline: 1px solid magenta;
-        view-timeline-name: --observerTimeline;
+        max-width: 740px;
+        margin-inline: auto;
         
     }
     h1 {
@@ -73,11 +81,22 @@
         margin-inline-end: -1.5%;
         transform-origin: right bottom;
     }
-    .observer-target {
-        width: 100%;
-        height: 100%;
+    section {
+        font-size: 1.2rem;
+        line-height: 1.428;
+        padding: 1lh;
+        max-width: 740px;
+        margin-inline: auto;
+
+    }  
+    p {
+        margin-block-end: 1lh;
     }
-        
+    .placeholder {
+        height: 100vh;
+    }
+
+
     @media (min-aspect-ratio: 1/1){
         .svg-wrapper {
             width: 80%;
@@ -117,23 +136,52 @@
     /* @supports (nonexistent: 100%) { */
         header { 
             height: 200dvh;
+            view-timeline-name: --observerTimeline;
+        }
+        .background {
+            position: fixed;
+            inset: 0;
+            background-color: oklch(0.82 0.08 225.77);
+            animation-name: fade-to-white;
+            animation-fill-mode: both;
+            animation-timeline: --observerTimeline;
+            animation-range: exit 0% exit 100%;
+            animation-timing-function: ease-in;
         }
         h1 {
-            position: fixed;
+            position: sticky;
             inset-inline-end: 0;
             inset-block-end: 0;
-            transform-origin: bottom right;
-            transition: transform 200ms ease-in;
+            overflow: hidden;
+            height: 100dvh;
         }
-        .observer-target {
-            height: 100vh;
-            width: 100%;
-            outline: 1px solid cyan;
+        .progress {
+            position: fixed;
+            inset-inline-start: 0;
+            inset-block-end: 0;
+            height: 100dvh;
+            background-color: black;
+            width: 30px;
+            opacity: 0.2;
+            animation-name: progress;
+            animation-fill-mode: both;
+            animation-timeline: --observerTimeline;
+            animation-timing-function: linear;
+            animation-range: exit 0% exit 50%;
+            transform-origin: bottom left;
+            
         }
         .svg-wrapper {
+            transform-origin: bottom right;
+            transition: transform 200ms ease-in;
             animation-name: test;
             animation-fill-mode: both;
             animation-timeline: --observerTimeline;
+            animation-range: entry 100% exit 50%;
+            animation-timing-function: ease-in;
+        }
+        section {
+            margin-block-start: -20dvh;
         }
     }
     /* @supports ((animation-timeline: scroll()) and (animation-range: 0% 100%)) {
