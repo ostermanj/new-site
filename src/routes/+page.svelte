@@ -4,9 +4,7 @@
     import SpriteFile from "./SpriteFile.svelte";
 </script>
 <header>
-    <div class="nav">
-        <MainNavigation></MainNavigation>
-    </div>
+    <MainNavigation></MainNavigation>
     <div class="background"></div>
     <h1>
         <span class="u-visually-hidden">john osterman</span>
@@ -16,7 +14,7 @@
     </h1>
 </header>
 <section>
-    <p>👋🏻 Hello. I am a web developer specializing in performance, accessibility, and data visualization. I work full-time for the US Holocaust Memorial Museum but am occasionally available for side projects.</p>
+    <p>👋🏻 Hello. I am a web developer specializing in performance, accessibility, and data visualization. I work full-time for the <a href="//ushmm.org">US Holocaust Memorial Museum</a> but am occasionally available for side projects.</p>
     <div class="placeholder"></div>
 </section>
 <footer>
@@ -26,25 +24,24 @@
     @keyframes test {
         0% {
             transform: scaleY(1) scaleX(1);
-            filter: drop-shadow(0px 0px 0px oklch(from skyblue calc(l - 0.2) c h / alpha));
         }
         75% {
-            transform: scaleY(2.5) scaleX(1.5);
-            filter: drop-shadow(-20px 20px 3px oklch(from skyblue l c h / alpha));
+            transform: scaleY(2.5) scaleX(0.75);
         }
         100% {
-            transform: scaleY(2.5) scaleX(1.5) translateY(-100%);
-            filter: drop-shadow(-20px 20px 3px oklch(from skyblue l c h / alpha));
+            transform: scaleY(1.5) scaleX(0.85) translateY(-100%);
         }
     }
-    @keyframes color {
+    /* @keyframes test {
         from {
-            color: var(--c-primary-2)
+            transform: translate(20px, -20px);
+            filter: drop-shadow(-20px 20px 3px oklch(from skyblue calc(l - 0.2) c h / alpha));
         }
         to {
-            color: var(--c-primary-1)
+            transform: translate(0, 0);
+            filter: drop-shadow(0px 0px 0px oklch(from skyblue calc(l - 0.4) c h / alpha));
         }
-    }
+    } */
 
     @keyframes fade-to-white {
         from {
@@ -68,19 +65,23 @@
         display: flex;
         justify-content: end;
         width: 100%;
+        max-width: 84rem;
+        margin-inline: auto;
+        flex-grow: 1;
     }
     .svg-wrapper {
         display: flex;
         align-items: end;
-        width: 55%;
+        width: 100%;
         transform-origin: right bottom;
     }
     section {
-        font-size: 1.2rem;
+        font-size: 1.44rem;
         line-height: 1.428;
-        padding: 1lh;
-        max-width: 46.25rem;
+        padding: .5em;
+        max-width: var(--l-max-column-width);
         margin-inline: auto;
+        hyphens: auto;
 
     }  
     p {
@@ -91,7 +92,7 @@
     }
 
 
-    /* @media (min-aspect-ratio: 1/1){
+    @media (min-aspect-ratio: 1/1){
         .svg-wrapper {
             width: 80%;
         }
@@ -115,18 +116,14 @@
         .svg-wrapper {
             width: 50%;
         }
-    } */
+    }
     /* TODO: change this to something else */
     @supports ((animation-timeline: scroll()) and (animation-range: 0% 100%)) {
     /* @supports (nonexistent: 100%) { */
-        header { 
-            height: 200dvh;
+        header {
+            align-items: start;
+            height: 150dvh;
             view-timeline-name: --observerTimeline;
-            animation-name: color;
-            animation-fill-mode: both;
-            animation-timeline: --observerTimeline;
-            animation-timing-function: linear;
-            animation-range: entry 100% exit 50%;
         }
         .background {
             position: fixed;
@@ -135,7 +132,7 @@
             animation-name: fade-to-white;
             animation-fill-mode: both;
             animation-timeline: --observerTimeline;
-            animation-range: exit 0% exit 100%;
+            animation-range: exit 30% exit 100%;
             animation-timing-function: ease-in;
         }
         
@@ -156,7 +153,9 @@
             animation-timing-function: linear;
         }
         section {
-            margin-block-start: -20dvh;
+            margin-block-start: 30dvh;
+            position: relative;
+            z-index: 1;
         }
     }
     /* @supports ((animation-timeline: scroll()) and (animation-range: 0% 100%)) {
