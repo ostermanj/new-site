@@ -6,4 +6,17 @@
     --c-background-2: oklch(from skyblue l c h  / 0.15);
 
     --l-max-column-width: 56rem;
+    --l-max-text-column: 60ch;
+
+    --fz-base: clamp(1.1475rem, 4.25vw, 1.45rem);
+    --type-interval: 1.618;
+	--fz-larger-6: calc(1em * pow(var(--type-interval), 6)); 
+	--fz-larger-5: calc(1em * pow(var(--type-interval), 5)); 
+	--fz-larger-4: calc(1em * pow(var(--type-interval), 4)); 
+	--fz-larger-3: calc(1em * pow(var(--type-interval), 3)); 
+	--fz-larger-2: calc(1em * pow(var(--type-interval), 2)); 
+	--fz-larger-1: calc(1em * pow(var(--type-interval), 1)); 
+	--fz-default: calc(1em * pow(var(--type-interval), 0)); 
+	--fz-smaller-1: calc(1em * pow(var(--type-interval), -1)); 
+	--fz-smaller-2: calc(1em * pow(var(--type-interval), -2)); 
 }

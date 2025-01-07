@@ -1,7 +1,15 @@
 <script lang="ts">
-	import MainNavigation from "./MainNavigation.svelte";
+	import type { TypeNewPageFields } from '$lib/types/contentful/TypeNewPage';
+	
+    import MainNavigation from "./MainNavigation.svelte";
 	import NameImage from "./NameImage.svelte";
     import SpriteFile from "./SpriteFile.svelte";
+    import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+
+
+	const { data }: {data: TypeNewPageFields} = $props();
+
+    
 </script>
 <header>
     <MainNavigation></MainNavigation>
@@ -13,9 +21,9 @@
         </div>
     </h1>
 </header>
-<section>
-    <p>👋🏻 Hello. I am a web developer specializing in performance, accessibility, and data visualization. I work full-time for the <a href="//ushmm.org">US Holocaust Memorial Museum</a> but am occasionally available for side projects.</p>
-    <div class="placeholder"></div>
+<section class="flow">
+    <p class="tc2">👋🏻 Hello.</p>
+    {@html documentToHtmlString(data.body)}
 </section>
 <footer>
     <SpriteFile></SpriteFile>
@@ -76,19 +84,13 @@
         transform-origin: right bottom;
     }
     section {
-        font-size: 1.44rem;
-        line-height: 1.428;
         padding: .5em;
-        max-width: var(--l-max-column-width);
+        max-width: var(--l-max-text-column);
         margin-inline: auto;
         hyphens: auto;
-
     }  
-    p {
-        margin-block-end: 1lh;
-    }
-    .placeholder {
-        height: 100vh;
+    p:first-of-type {
+        text-align: center;
     }
 
 

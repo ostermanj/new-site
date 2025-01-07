@@ -34,7 +34,6 @@
 <style>
     nav {
        font-family: PassionOne;
-       font-size: 1.44rem;
        letter-spacing: 0.3px;
        position: fixed;
        inset-block-start: 0; 
@@ -64,6 +63,7 @@
     .home-item {
         display: flex;
         align-items: center;
+        background-color: #fff;
     }
     menu.internal {
         flex-grow: 1;

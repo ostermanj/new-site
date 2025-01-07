@@ -12,12 +12,44 @@
     src: url('/fonts/Passion-One-latin.woff2') format('woff2');
     font-display: swap;
   }
+
+  /* type containers */
+.tc2 {
+    font-size: calc(var(--fz-base) * pow(var(--type-interval), 2));
+}
+.tc1 {
+    font-size: calc(var(--fz-base) * pow(var(--type-interval), 1));
+}
+.tc0 {
+    font-size: var(--fz-base);
+}
+.tc-1 {
+    font-size: calc(var(--fz-base) * pow(var(--type-interval), -1));
+}
+.tc-2 {
+    font-size: calc(var(--fz-base) * pow(var(--type-interval), -2));
+}
+.tc-3 {
+    font-size: calc(var(--fz-base) * pow(var(--type-interval), -3));
+}
+
+:root {
+    font-size: var(--fz-base);
+}
+
 body {
     background-color: var(--c-background-2);
+    font-size: var(--fz-default);
+    line-height: 1.428;
 }
+
 a {
     color: var(--c-primary-2);
     text-underline-offset: 3px;
     text-decoration-color: var(--c-primary-1);
     
+}
+
+.flow > * + * {
+	margin-block-start: 1lh;
 }
