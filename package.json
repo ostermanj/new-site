@@ -11,7 +11,7 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
-		"generate-types": "env-cmd --silent --no-override -x cf-content-types-generator -s '$C_SPACE' -t='$C_TOKEN' -e master -o @types/contentful -g -l"
+		"generate-types": "env-cmd --silent --no-override -x cf-content-types-generator -s '$C_SPACE' -t='$C_PAT' -e master -o src/lib/types/contentful -g -l"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.3",

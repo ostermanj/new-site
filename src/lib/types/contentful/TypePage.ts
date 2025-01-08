@@ -6,6 +6,7 @@ export interface TypePageFields {
     seriesTitle: EntryFields.Symbol;
     secondaryTitle?: EntryFields.Symbol;
     body: EntryFields.Text;
+    bodyText?: EntryFields.RichText;
     snippet?: EntryFields.Text;
     slug: EntryFields.Symbol;
     hero?: Asset;
