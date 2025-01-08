@@ -1,3 +1,8 @@
+<script lang="ts">
+    const { isHome = false } = $props();
+    import Sprite from "./Sprite.svelte"
+
+</script>
 <nav>
     <div class="nav-inner">
         <a class="home-item" aria-label="home" href="/"><Sprite id="initials" height={48} width={50} /></a>
@@ -91,6 +96,3 @@
         text-decoration: none;
     }
 </style>
-<script>
-    import Sprite from "./Sprite.svelte";
-</script>

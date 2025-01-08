@@ -1,9 +1,9 @@
 <script lang="ts">
 	import type { TypeNewPageFields } from '$lib/types/contentful/TypeNewPage';
 	
-    import MainNavigation from "./MainNavigation.svelte";
-	import NameImage from "./NameImage.svelte";
-    import SpriteFile from "./SpriteFile.svelte";
+    import MainNavigation from "$lib/components/MainNavigation.svelte";
+	import NameImage from "$lib/components/NameImage.svelte";
+    import SpriteFile from "$lib/components/SpriteFile.svelte";
     import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
 
@@ -12,7 +12,7 @@
     
 </script>
 <header>
-    <MainNavigation></MainNavigation>
+    <MainNavigation isHome={true}></MainNavigation>
     <div class="background"></div>
     <h1>
         <span class="u-visually-hidden">john osterman</span>
@@ -22,8 +22,12 @@
     </h1>
 </header>
 <section class="flow">
-    <p class="tc2">👋🏻 Hello.</p>
+    <p class="tc2"><span class="handwave">👋🏻</span> Hello.</p>
     {@html documentToHtmlString(data.body)}
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis tenetur praesentium nemo nisi eos debitis dicta quae recusandae. Culpa, aliquid.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis tenetur praesentium nemo nisi eos debitis dicta quae recusandae. Culpa, aliquid.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis tenetur praesentium nemo nisi eos debitis dicta quae recusandae. Culpa, aliquid.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis tenetur praesentium nemo nisi eos debitis dicta quae recusandae. Culpa, aliquid.</p>
 </section>
 <footer>
     <SpriteFile></SpriteFile>
@@ -40,16 +44,32 @@
             transform: scaleY(1.5) scaleX(0.85) translateY(-100%);
         }
     }
-    /* @keyframes test {
-        from {
-            transform: translate(20px, -20px);
-            filter: drop-shadow(-20px 20px 3px oklch(from skyblue calc(l - 0.2) c h / alpha));
+    @keyframes wave {
+        0% {
+            transform: rotate(0);
         }
-        to {
-            transform: translate(0, 0);
-            filter: drop-shadow(0px 0px 0px oklch(from skyblue calc(l - 0.4) c h / alpha));
+        5% {
+            transform: rotate(10deg);
         }
-    } */
+        10% {
+            transform: rotate(-10deg);
+        }
+        15% {
+            transform: rotate(0);
+        }
+        85% {
+            transform: rotate(0);
+        }
+        90% {
+            transform: rotate(10deg);
+        }
+        95% {
+            transform: rotate(-10deg);
+        }
+        100% {
+            transform: rotate(0);
+        }
+    }
 
     @keyframes fade-to-white {
         from {
@@ -155,9 +175,19 @@
             animation-timing-function: linear;
         }
         section {
-            margin-block-start: 30dvh;
+            /* margin-block-start: 30dvh; */
+            margin-block-start: 0;
             position: relative;
             z-index: 1;
+        }
+        .handwave {
+            display: inline-block;
+            view-timeline-name: --sectionTimeline;
+            animation-name: wave;
+            animation-fill-mode: both;
+            animation-timeline: --sectionTimeline;
+            animation-range: entry 10% exit 10%;
+            animation-timing-function: linear;
         }
     }
     /* @supports ((animation-timeline: scroll()) and (animation-range: 0% 100%)) {
