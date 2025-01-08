@@ -5,9 +5,20 @@
 	import NameImage from "$lib/components/NameImage.svelte";
     import SpriteFile from "$lib/components/SpriteFile.svelte";
     import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-
+    import { onNavigate } from '$app/navigation';
 
 	const { data }: {data: TypeNewPageFields} = $props();
+
+    onNavigate((navigation) => {
+	if (!document.startViewTransition) return;
+
+	return new Promise((resolve) => {
+		document.startViewTransition(async () => {
+			resolve();
+			await navigation.complete;
+		});
+	});
+});
 
     
 </script>
@@ -21,7 +32,7 @@
         </div>
     </h1>
 </header>
-<section class="flow">
+<section class="u-column flow">
     <p class="tc2"><span class="handwave">👋🏻</span> Hello.</p>
     {@html documentToHtmlString(data.body)}
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis tenetur praesentium nemo nisi eos debitis dicta quae recusandae. Culpa, aliquid.</p>
@@ -104,9 +115,7 @@
         transform-origin: right bottom;
     }
     section {
-        padding: .5em;
-        max-width: var(--l-max-text-column);
-        margin-inline: auto;
+        
         hyphens: auto;
     }  
     p:first-of-type {

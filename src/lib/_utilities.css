@@ -9,3 +9,9 @@
     width: 1px !important;
     overflow: hidden;
 }
+
+.u-column {
+    padding: .5em;
+    max-width: var(--l-max-text-column);
+    margin-inline: auto;
+}

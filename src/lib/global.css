@@ -13,6 +13,8 @@
     font-display: swap;
   }
 
+  
+
   /* type containers */
 .tc2 {
     font-size: calc(var(--fz-base) * pow(var(--type-interval), 2));
