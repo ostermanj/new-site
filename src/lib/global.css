@@ -39,6 +39,14 @@
     font-size: var(--fz-base);
 }
 
+h1 {
+    font-size: var(--fz-larger-2);
+    color: var(--c-primary-2);
+}
+h2 {
+    font-size: var(--fz-larger-1);
+}
+
 body {
     background-color: var(--c-background-2);
     font-size: var(--fz-default);

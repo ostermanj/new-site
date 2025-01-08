@@ -1,16 +1,17 @@
 <script lang="ts">
     const { isHome = false } = $props();
+    import { page } from "$app/state";
+    console.log(page);
     import Sprite from "./Sprite.svelte"
-
 </script>
 <div class={["main-navigation", {isHome}]}>
     <nav>
         <div class="nav-inner">
-            <a class="home-item" aria-label="home" href="/"><Sprite id="initials" height={48} width={50} /></a>
+            <a aria-current={page.url.pathname === '/' ? 'page' : null} class="home-item" aria-label="home" href="/"><Sprite id="initials" height={48} width={50} /></a>
             <menu class="internal">
-                <li><a href="/blog-posts">Blog posts</a></li>
-                <li><a href="/">Projects</a></li>
-                <li><a href="/">Peace Corps</a></li>
+                <li><a aria-current={page.url.pathname === '/blog-posts' ? 'page' : null} href="/blog-posts">Blog posts</a></li>
+                <li><a aria-current={page.url.pathname === '/projects' ? 'page' : null} href="/projects">Projects</a></li>
+                <li><a aria-current={page.url.pathname === '/peace-corps' ? 'page' : null} href="/peace-corps">Peace Corps</a></li>
             </menu>
         </div>
     </nav>
@@ -68,7 +69,8 @@
         border-block-end: 1px solid currentColor;
     }
     menu {
-        display: flex;
+        display: grid;
+        // grid-auto-rows: 1fr;
         gap: 1rem;
     }
     .home-item {
@@ -77,24 +79,37 @@
         padding-block-start: 5px;
         border-inline-end: 1px solid var(--c-primary-2);
         /* border-block-end: 1px solid currentColor; */
-    }
-    .home-item {
         display: flex;
         align-items: center;
-        background-color: #fff;
     }
     menu.internal {
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr;
         flex-grow: 1;
-        justify-content: space-evenly;
-        padding-inline: 0.5rem;
+        justify-content: stretch;
+
+        @media screen and (min-width: 51rem) {
+            padding-inline-end: 56px;
+        }
     }
     menu.internal li {
+        flex-grow: 1;
+        display: flex;
+        align-items: stretch;
+        justify-content: stretch;
+    }
+    menu.internal li a {
+        flex-grow: 1;
         display: flex;
         align-items: center;
+        justify-content: center;
+    }
+    a[aria-current='page'] {
+        background-color: var(--c-background-2);
     }
     @mixin vertical {
         margin-block-start: 0;
-        padding-block-start: 1rem;
+        padding-block: 1rem;
         position: absolute;
         flex-direction: column;
         width: 56px;

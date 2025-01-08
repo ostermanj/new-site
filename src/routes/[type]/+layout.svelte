@@ -5,7 +5,6 @@
     import '$lib/global.css';
     
     let { children } = $props();
-
     onNavigate((navigation) => {
 	if (!document.startViewTransition) return;
 
@@ -20,7 +19,7 @@
 <header>
     <MainNavigation></MainNavigation>
 </header>
-<section class="u-column flow">{@render children()}</section>
+<section class="flow">{@render children()}</section>
 <footer>
     <SpriteFile></SpriteFile>
 </footer>

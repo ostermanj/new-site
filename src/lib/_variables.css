@@ -3,9 +3,9 @@
     --c-primary-2: oklch(from var(--c-primary-1) 0.35 c h );
 
     --c-background-1: oklch(from skyblue l c h);
-    --c-background-2: oklch(from skyblue l c h  / 0.15);
+    --c-background-2: oklch(from skyblue 0.981 0.018 h);
 
-    --l-max-column-width: 56rem;
+    --l-max-column-width: 60rem;
     --l-max-text-column: 60ch;
 
     --fz-base: clamp(1.1475rem, 4.25vw, 1.45rem);
