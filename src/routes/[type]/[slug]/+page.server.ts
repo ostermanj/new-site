@@ -1,12 +1,13 @@
-import type { PageServerLoad } from './$types';
-import { getEntryBySlugAndType, getPaginatedCollection } from '$lib/contentful';
+import type { PageServerLoad } from '../../$types';
+import { getEntryBySlugAndType } from '$lib/contentful';
 import type { TypePageFields } from '$lib/types/contentful';
 import { contentMap, titleMap, type ContentTypeMap } from '$lib/mapping';
 
 
 export const load: PageServerLoad = async ({params}) => {
+    console.log({params});
     try {
-        const contentType = contentMap[params.type as keyof typeof contentMap] as keyof ContentTypeMap;
+        const contentType = contentMap[params.slug as keyof typeof contentMap] as keyof ContentTypeMap;
         console.log(params.type);
         const entries = await getPaginatedCollection(contentType);
         if (params.type !== 'peace-corps'){
@@ -24,4 +25,5 @@ export const load: PageServerLoad = async ({params}) => {
     } catch (error) {
         console.error(error);
     }
+    return {};
 };

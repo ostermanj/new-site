@@ -101,9 +101,6 @@
         @media screen and (min-width: 515px){
                 filter: url('#noise-lite');
         }
-        @media screen and (min-width: 51rem){
-                padding-inline: 76px;
-        }
     }
     
 </style>

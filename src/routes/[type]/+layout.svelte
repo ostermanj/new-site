@@ -25,5 +25,11 @@
     <SpriteFile></SpriteFile>
 	<SvgFilters></SvgFilters>
 </footer>
-<style>
+<style lang="scss">
+	section {
+		@media screen and (min-width: 51rem) {
+            width: calc(100vw - 56px * 2);
+            margin-inline: auto;
+        }
+	}
 </style>
