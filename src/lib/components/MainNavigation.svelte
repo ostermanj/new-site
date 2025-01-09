@@ -72,6 +72,7 @@
         display: grid;
         // grid-auto-rows: 1fr;
         gap: 1rem;
+        grid-auto-flow: column;
     }
     .home-item {
         padding-inline-end: 5px;
@@ -83,7 +84,6 @@
         align-items: center;
     }
     menu.internal {
-        grid-auto-flow: column;
         grid-auto-columns: 1fr;
         flex-grow: 1;
         justify-content: stretch;
@@ -111,7 +111,7 @@
         margin-block-start: 0;
         padding-block: 1rem;
         position: absolute;
-        flex-direction: column;
+        grid-auto-flow: row;
         width: 56px;
         height: auto;
         border-inline-end: 1px solid currentColor;

@@ -41,7 +41,7 @@
 
 h1 {
     font-size: var(--fz-larger-2);
-    color: var(--c-primary-2);
+    color: oklch(from var(--c-background-1) calc( l * 0.5) c h);
 }
 h2 {
     font-size: var(--fz-larger-1);

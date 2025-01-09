@@ -1,13 +1,16 @@
 {#if isPeaceCorps}
-<img src="{data.pageFields?.hero?.fields.file?.url as string}" alt="{data.pageFields?.hero?.fields.description as string}">
-
-{/if}
-<h1 class="{!isPeaceCorps ? 'u-visually-hidden' : null}">{data.title}</h1>
-{#if isPeaceCorps}
-<div>{data.pageFields?.secondaryTitle}</div>
-{#if data.pageFields?.bodyText}
+<header>
+    <img class="hero" src="{data.pageFields?.hero?.fields.file?.url as string}" alt="{data.pageFields?.hero?.fields.description as string}">
+    <h1>{data.title}</h1>
+</header>
+<div class="u-column flow">
+    <div class="secondary-title">{data.pageFields?.secondaryTitle}</div>
+    {#if data.pageFields?.bodyText}
     {@html documentToHtmlString(data.pageFields.bodyText)}
-{/if}
+    {/if}
+</div>
+{:else}
+<h1 class="u-visually-hidden">{data.title}</h1>
 {/if}
 <div class="grid tc-1">
     {#each data.items ?? [] as item}
@@ -29,6 +32,32 @@
         border-radius: 0.5rem;
         padding: 1rem;
         background-color: #fff;
+    }
+    header {
+        display: grid;
+    }
+    h1 {
+        mix-blend-mode: difference;
+        text-align: center;
+        color: #2196f3;
+        grid-row: 1;
+        grid-column: 1;
+        align-self: end;
+        font-family: cursive;
+        filter: url('#noise-liter');
+        @media screen and (min-width: 515px){
+            filter: url('#noise-lite');
+        }
+        @media screen and (min-width: 60rem){
+            font-size: var(--fz-larger-3);
+        }
+    }
+
+    .secondary-title {
+        font-family: PassionOne;
+        text-align: center;
+        margin-block-start: -40px;
+        letter-spacing: 0.5px;
     }
     h2 {
         // color: oklch(from skyblue calc(l / 2.5) c h);
@@ -58,6 +87,23 @@
     .date-published {
         align-self: end;
         color: #767676;
+    }
+    .hero {
+        grid-row: 1;
+        grid-column: 1;
+        margin-block-start: -3px;
+        width: 100%;
+        padding: 0.5rem;
+        height: auto;
+        min-height: 270px;
+        object-fit: cover;
+        filter: url('#noise-liter');
+        @media screen and (min-width: 515px){
+                filter: url('#noise-lite');
+        }
+        @media screen and (min-width: 51rem){
+                padding-inline: 76px;
+        }
     }
     
 </style>
