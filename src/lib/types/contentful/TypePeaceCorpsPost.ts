@@ -10,6 +10,7 @@ export interface TypePeaceCorpsPostFields {
     datePublished: EntryFields.Date;
     dateUpdated?: EntryFields.Date;
     body: EntryFields.Text;
+    bodyText?: EntryFields.RichText;
     snippet?: EntryFields.Text;
     heroImage?: Asset;
     slug?: EntryFields.Symbol;

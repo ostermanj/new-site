@@ -9,9 +9,9 @@
         <div class="nav-inner">
             <a aria-current={page.url.pathname === '/' ? 'page' : null} class="home-item" aria-label="home" href="/"><Sprite id="initials" height={48} width={50} /></a>
             <menu class="internal">
-                <li><a aria-current={page.url.pathname === '/blog-posts' ? 'page' : null} href="/blog-posts">Blog posts</a></li>
-                <li><a aria-current={page.url.pathname === '/projects' ? 'page' : null} href="/projects">Projects</a></li>
-                <li><a aria-current={page.url.pathname === '/peace-corps' ? 'page' : null} href="/peace-corps">Peace Corps</a></li>
+                <li><a class={{'breadcrumb': page.url.pathname.startsWith('/blog-posts') }} aria-current={page.url.pathname === '/blog-posts' ? 'page' : null} href="/blog-posts">Blog posts</a></li>
+                <li><a class={{'breadcrumb': page.url.pathname.startsWith('/projects') }} aria-current={page.url.pathname === '/projects' ? 'page' : null} href="/projects">Projects</a></li>
+                <li><a class={{'breadcrumb': page.url.pathname.startsWith('/peace-corps') }} aria-current={page.url.pathname === '/peace-corps' ? 'page' : null} href="/peace-corps">Peace Corps</a></li>
             </menu>
         </div>
     </nav>
@@ -144,6 +144,17 @@
         top: 59px;
     }
     a {
+        position: relative;
         text-decoration: none;
+    }
+    a.breadcrumb::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        border-bottom: 7px solid var(--c-primary-1);
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
     }
 </style>

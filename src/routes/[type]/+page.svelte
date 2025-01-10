@@ -15,10 +15,10 @@
 <div class="grid tc-1">
     {#each data.items ?? [] as item}
         <article class="flow">
-            <h2><a href="/">{item.title}</a></h2>
-            <p>{item.snippet}</p>
+            <h2><a href="/{contentIdToSlug[item.sys.contentType.sys.id as keyof typeof contentIdToSlug]}/{item.fields.slug}">{item.fields.title}</a></h2>
+            <p>{item.fields.snippet}</p>
             <div class="date-published">
-                <time datetime={item.datePublished}>{new Date(  item.datePublished  ).toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</time>
+                <time datetime={item.fields.datePublished}>{new Date(  item.fields.datePublished  ).toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</time>
             </div>
         </article>
     {/each}
@@ -107,6 +107,7 @@
 <script lang="ts">
     import { page } from "$app/state";
     import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+    import { contentIdToSlug } from "$lib/mapping.js";
     const { data } = $props();
     let isPeaceCorps = $derived(page.url.pathname === '/peace-corps');
     

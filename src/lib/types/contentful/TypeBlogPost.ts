@@ -11,6 +11,7 @@ export interface TypeBlogPostFields {
     datePublished: EntryFields.Date;
     dateUpdated?: EntryFields.Date;
     body: EntryFields.Text;
+    bodyText?: EntryFields.RichText;
     snippet: EntryFields.Text;
     tags: Entry<TypeTagFields>[];
     heroImage?: Asset;
