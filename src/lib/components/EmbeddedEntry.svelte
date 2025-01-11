@@ -1,30 +1,19 @@
-<style>
-    .figure {
-        background-color: #fff;
-        padding: 1rem;
-        filter: drop-shadow(0px 0px 3px var(--c-background-1));
-        font-family: PassionOne;
-    }
-    figcaption {
-        letter-spacing: 0.5px;
-    }
-</style>
-<svelte:options css={'injected'}></svelte:options>
 {#if entry.sys.contentType.sys.id === 'figure'}
-    <figure class="tc-1 figure flow">
-        <Image asset={fields.image}></Image>
-        {#if fields.caption}
-        <figcaption>
-            {@html documentToHtmlString(fields.caption)}
-        </figcaption>
-        {/if}
-    </figure>
+    <Figure fields={fields as TypeFigureFields}></Figure>
+{:else if entry.sys.contentType.sys.id === 'summaryDetails'}
+    <SummaryDetails fields={fields as TypeSummaryDetailsFields}></SummaryDetails>
+{:else if entry.sys.contentType.sys.id === 'twoUp'}
+    <TwoUp fields={fields as TypeTwoUpFields}></TwoUp>
+{:else}
+    <div>EMBEDDED_ENTRY <pre>{JSON.stringify(entry, null, 4)   }</pre></div>
 {/if}
+
 <script lang="ts">
-    import type { TypeFigureFields } from "$lib/types/contentful/TypeFigure";
-	import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
-	import type { Asset, Entry } from "contentful";
-	import Image from "./Image.svelte";
+    import type { TypeFigureFields, TypeSummaryDetailsFields, TypeTwoUpFields } from "$lib/types/contentful";
+	import type { Entry } from "contentful";
+    import Figure from "./Figure.svelte";
+    import SummaryDetails from "./SummaryDetails.svelte";
+    import TwoUp from "./TwoUp.svelte";
 
     interface Props {
         entry: Entry
@@ -32,6 +21,6 @@
 
     const props: Props = $props();
     const { entry } = props;
-    const fields = entry.fields as unknown as TypeFigureFields;
+    const fields = entry.fields as unknown as ( TypeFigureFields | TypeSummaryDetailsFields | TypeTwoUpFields);
     
 </script>

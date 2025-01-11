@@ -9,7 +9,8 @@ const client = contentful.createClient({
 export const getEntryBySlugAndType = async ({slug, type}: {slug: string, type: string}) => {
     const entries = await client.getEntries({
         content_type: type,
-        "fields.slug": slug
+        "fields.slug": slug,
+        include: 2,
     });
     return entries;
 }
