@@ -11,8 +11,21 @@
 <script lang="ts">
     interface Props {
         fields: TypeBlogPostFields; 
-        bodyHTML: string
+        bodyHTML: string | null | undefined
     };
 	import { type TypeBlogPostFields } from '$lib/types/contentful';
-    const { fields, bodyHTML } = $props() as Props;
+    const props: Props = $props();
+    const { fields, bodyHTML } = props;
 </script>
+<style>
+    h1 {
+        margin-block-start: 1lh;
+        filter: drop-shadow(2px 2px 2px var(--c-primary-1));
+    }
+    h1, .date-published, .subtitle {
+        text-align: center;
+    }
+    .subtitle {
+        font-weight: bold;
+    }
+</style>

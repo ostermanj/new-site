@@ -7,6 +7,8 @@ export { isTypeBlogPost } from "./TypeBlogPost";
 export type { LocalizedTypeBlogPost, LocalizedTypeBlogPostFields, TypeBlogPost, TypeBlogPostFields } from "./TypeBlogPost";
 export { isTypeExternalUrl } from "./TypeExternalUrl";
 export type { LocalizedTypeExternalUrl, LocalizedTypeExternalUrlFields, TypeExternalUrl, TypeExternalUrlFields } from "./TypeExternalUrl";
+export { isTypeFigure } from "./TypeFigure";
+export type { LocalizedTypeFigure, LocalizedTypeFigureFields, TypeFigure, TypeFigureFields } from "./TypeFigure";
 export { isTypeHomepage } from "./TypeHomepage";
 export type { LocalizedTypeHomepage, LocalizedTypeHomepageFields, TypeHomepage, TypeHomepageFields } from "./TypeHomepage";
 export { isTypeInternalLink } from "./TypeInternalLink";

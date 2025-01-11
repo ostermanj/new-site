@@ -1,9 +1,10 @@
 <article class="flow">
     {#if data.contentType === 'blogPost'}
-        <BlogPost {fields} {bodyHTML}/>
+        <BlogPost fields={fields as TypeBlogPostFields} {bodyHTML}/>
     {/if}
 </article>
 <script lang="ts">
+    import { type TypeBlogPostFields } from '$lib/types/contentful';
 	import BlogPost from './BlogPost.svelte';
 
     // import richTextOptions from '$lib/rich-text-options.js'
@@ -17,11 +18,5 @@
     
 </script>
 <style>
-    h1 {
-        margin-block-start: 1lh;
-        filter: drop-shadow(2px 2px 2px var(--c-primary-1));
-    }
-    h1, .date-published {
-        text-align: center;
-    }
+    
 </style>
