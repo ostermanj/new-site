@@ -1,7 +1,6 @@
 <script lang="ts">
     const { isHome = false } = $props();
     import { page } from "$app/state";
-    console.log(page);
     import Sprite from "./Sprite.svelte"
 </script>
 <div class={["main-navigation", {isHome}]}>

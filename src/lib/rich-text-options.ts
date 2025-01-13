@@ -14,7 +14,6 @@ export default {
             const result = render(EmbeddedEntry, {
                 props: { entry }
             });
-            console.log({result})
             return `${result.head}\n${result.body}`
         },
         [BLOCKS.EMBEDDED_RESOURCE]: (node, next) => `<div>EMBEDDED_RESOURCE ${next(node.content)}</div>`,
@@ -34,7 +33,6 @@ export default {
             const result  = render(Strong, {
                 props: { text }
             });
-            console.log({result});
             return result.body
         }
     }

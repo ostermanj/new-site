@@ -5,6 +5,8 @@ export { isTypeAuthor } from "./TypeAuthor";
 export type { LocalizedTypeAuthor, LocalizedTypeAuthorFields, TypeAuthor, TypeAuthorFields } from "./TypeAuthor";
 export { isTypeBlogPost } from "./TypeBlogPost";
 export type { LocalizedTypeBlogPost, LocalizedTypeBlogPostFields, TypeBlogPost, TypeBlogPostFields } from "./TypeBlogPost";
+export { isTypeCodeBlock } from "./TypeCodeBlock";
+export type { LocalizedTypeCodeBlock, LocalizedTypeCodeBlockFields, TypeCodeBlock, TypeCodeBlockFields } from "./TypeCodeBlock";
 export { isTypeExternalUrl } from "./TypeExternalUrl";
 export type { LocalizedTypeExternalUrl, LocalizedTypeExternalUrlFields, TypeExternalUrl, TypeExternalUrlFields } from "./TypeExternalUrl";
 export { isTypeFigure } from "./TypeFigure";
