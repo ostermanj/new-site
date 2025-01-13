@@ -1,14 +1,8 @@
-<svelte:options css={'injected'}></svelte:options>
-<svelte:head>
-    <script>
-        console.log('figure in head');
-    </script>
-</svelte:head>
 <figure class="tc-1 figure flow">
     <Image asset={fields.image}></Image>
     {#if fields.caption}
     <figcaption>
-        {@html documentToHtmlString(fields.caption)}
+        <RichText doc={fields.caption}></RichText>
     </figcaption>
     {/if}
 </figure>
@@ -27,8 +21,7 @@
     import type { TypeFigureFields } from "$lib/types/contentful/TypeFigure";
 	import { onMount } from "svelte";
     import Image from "./Image.svelte";
-    import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
-	import { LOGNAME } from "$env/static/private";
+    import RichText from "./RichText/index.svelte";
     interface Props {
         fields: TypeFigureFields
     }

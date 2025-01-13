@@ -1,10 +1,10 @@
 import { render } from 'svelte/server';
 import Strong from './components/Strong.svelte';
 import Image from './components/Image.svelte';
-import { BLOCKS, MARKS, type Block } from '@contentful/rich-text-types';
+import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import type { Options } from '@contentful/rich-text-html-renderer';
 import type { Asset, Entry } from "contentful";
-import EmbeddedEntry from './components/EmbeddedEntry.svelte';
+import EmbeddedEntry from './components/RichText/EmbeddedEntry.svelte';
 export default {
     renderNode: {
         [BLOCKS.PARAGRAPH]: (node, next) => `<p class="rich text">${next(node.content)}</p>`,
