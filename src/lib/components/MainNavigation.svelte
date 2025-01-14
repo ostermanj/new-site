@@ -14,7 +14,7 @@
             </menu>
         </div>
     </nav>
-    <menu class="external">
+    <menu class={['external', {pc: page.params.type === 'peace-corps' }]}>
         <li>
             <a title="GitHub" href="//github.com/ostermanj">
                 <span class="u-visually-hidden">Github</span> <Sprite id="github" /></a>
@@ -128,10 +128,19 @@
         height: 56px;
         border-block-end: 1px solid currentColor;
         z-index: 1;
-
-        @media screen and (min-width: 51rem) {
-            @include vertical();
+        &.pc {
+            transition: transform 0.15s 0.2s ease;
+            transform: translateY(-100%);
+            .main-navigation:hover &, .main-navigation:focus-within & {
+                transform: translateY(0);
+            }
         }
+        // &:not(.pc) {
+
+            @media screen and (min-width: 51rem) {
+                @include vertical();
+            }
+        // }
 
         li {
             line-height: 1;

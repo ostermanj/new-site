@@ -15,6 +15,8 @@ export { isTypeHomepage } from "./TypeHomepage";
 export type { LocalizedTypeHomepage, LocalizedTypeHomepageFields, TypeHomepage, TypeHomepageFields } from "./TypeHomepage";
 export { isTypeInternalLink } from "./TypeInternalLink";
 export type { LocalizedTypeInternalLink, LocalizedTypeInternalLinkFields, TypeInternalLink, TypeInternalLinkFields } from "./TypeInternalLink";
+export { isTypeJournalQuote } from "./TypeJournalQuote";
+export type { LocalizedTypeJournalQuote, LocalizedTypeJournalQuoteFields, TypeJournalQuote, TypeJournalQuoteFields } from "./TypeJournalQuote";
 export { isTypeLogoLink } from "./TypeLogoLink";
 export type { LocalizedTypeLogoLink, LocalizedTypeLogoLinkFields, TypeLogoLink, TypeLogoLinkFields } from "./TypeLogoLink";
 export { isTypeNewPage } from "./TypeNewPage";

@@ -1,13 +1,26 @@
-<figure class={['figure', 'flow', {'small': fields.size === 'Small' }]}>
+{#snippet figcontent()}
     <Image asset={fields.image}></Image>
     {#if fields.caption}
+    <!-- svelte-ignore a11y_figcaption_parent -->
     <figcaption class="tc-1">
         <RichText doc={fields.caption}></RichText>
     </figcaption>
     {/if}
+{/snippet}
+{#if !fields.distorted}
+<figure class={['figure', 'flow', {'small': fields.size === 'Small' }]}>
+    {@render figcontent()}
 </figure>
-<style>
-     .figure {
+{:else}
+<div class="grid">
+    <div class="background"></div>
+    <figure class={['flow', {'small': fields.size === 'Small' }]}>
+        {@render figcontent()}
+    </figure>
+    </div>
+{/if}
+<style lang="scss">
+    .figure {
         background-color: #fff;
         padding: 1rem;
         filter: drop-shadow(0px 0px 3px var(--c-background-1));
@@ -19,6 +32,24 @@
     }
     figcaption {
         letter-spacing: 0.5px;
+    }
+    .grid {
+        display: grid;
+        .background, figure {
+            grid-column: 1;
+            grid-row: 1;
+        }
+        .background {
+            background-color: #fff;
+            filter: url(#noise) drop-shadow(0px 0px 3px var(--c-secondary-1));
+        }
+        figure {
+            padding-block: 1.4rem 0.6rem;
+            padding-inline: 1.4rem 0.6rem;
+            background-color: transparent;
+            font-family: PassionOne;
+            z-index: 1;
+        }
     }
 </style>
 <script lang="ts">
