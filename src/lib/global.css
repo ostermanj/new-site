@@ -59,7 +59,12 @@ a {
     text-decoration-color: var(--c-primary-1);
     
 }
-
+ul {
+    padding-inline-start: 1.6em;
+}
 .flow > * + * {
 	margin-block-start: 1lh;
+}
+.grid + figure.small {
+    margin-block-start: 0.5rem;
 }

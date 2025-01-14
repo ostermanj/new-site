@@ -1,7 +1,7 @@
-<figure class="tc-1 figure flow">
+<figure class={['figure', 'flow', {'small': fields.size === 'Small' }]}>
     <Image asset={fields.image}></Image>
     {#if fields.caption}
-    <figcaption>
+    <figcaption class="tc-1">
         <RichText doc={fields.caption}></RichText>
     </figcaption>
     {/if}
@@ -12,6 +12,10 @@
         padding: 1rem;
         filter: drop-shadow(0px 0px 3px var(--c-background-1));
         font-family: PassionOne;
+    }
+    .small {
+        max-width: calc(var(--l-max-text-column) / 2);
+        margin-inline: auto;
     }
     figcaption {
         letter-spacing: 0.5px;

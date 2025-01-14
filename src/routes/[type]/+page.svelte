@@ -15,7 +15,7 @@
 <div class="grid tc-1">
     {#each data.items ?? [] as item}
         <article class="flow">
-            <h2><a href="/{contentIdToSlug[item.sys.contentType.sys.id as keyof typeof contentIdToSlug]}/{item.fields.slug}">{item.fields.title}</a></h2>
+            <h2><a class={{'no-slug': !item.fields.slug}} href="/{contentIdToSlug[item.sys.contentType.sys.id as keyof typeof contentIdToSlug]}/{item.fields.slug}">{item.fields.title}</a></h2>
             <p>{item.fields.snippet}</p>
             <div class="date-published">
                 <time datetime={item.fields.datePublished}>{new Date(  item.fields.datePublished  ).toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</time>
@@ -69,6 +69,9 @@
     h2 a {
         text-decoration: none;
         color: inherit;
+        &.no-slug {
+            opacity: 0.5;
+        }
     }
     .grid {
         padding-inline: 1lh;

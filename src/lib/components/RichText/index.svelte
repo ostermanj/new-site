@@ -32,15 +32,9 @@
         "hyperlink": Hyperlink,
         "resource-hyperlink": DefaultInline,
     }
-</script>
-<script lang="ts">
-    
-    interface Props {
-        doc: Document
-    }
 
-    const blockTypeToComponent = {
-        "document": RichText,
+    export const blockTypeToComponent = {
+        
         "paragraph": Paragraph,
         "heading-1": Heading,
         "heading-2": Heading,
@@ -61,7 +55,14 @@
         "table-cell": TableCell,
         "table-header-cell": TableHeaderCell,
     }
+</script>
+<script lang="ts">
     
+    interface Props {
+        doc: Document
+    }
+
+    // blockTypeToComponent.document =  RichText;
     const props: Props = $props()
     const { doc } = props;
 </script>

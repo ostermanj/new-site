@@ -6,6 +6,7 @@ export interface TypeFigureFields {
     internalName: EntryFields.Symbol;
     image: Asset;
     caption?: EntryFields.RichText;
+    size: "Default" | "Small";
 }
 
 export type TypeFigure = Entry<TypeFigureFields>;
