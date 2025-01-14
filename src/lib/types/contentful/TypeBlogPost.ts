@@ -1,7 +1,12 @@
 import type { Asset, Entry, EntryFields } from "contentful";
 import type { LocalizedEntry, LocalizedFields } from "./Localized";
 import type { TypeAuthorFields } from "./TypeAuthor";
+import type { TypeCodeBlockFields } from "./TypeCodeBlock";
+import type { TypeFigureFields } from "./TypeFigure";
+import type { TypeRichTextFields } from "./TypeRichText";
+import type { TypeSummaryDetailsFields } from "./TypeSummaryDetails";
 import type { TypeTagFields } from "./TypeTag";
+import type { TypeTwoUpFields } from "./TypeTwoUp";
 import type { WithContentTypeLink } from "./WithContentTypeLink";
 
 export interface TypeBlogPostFields {
@@ -12,6 +17,7 @@ export interface TypeBlogPostFields {
     dateUpdated?: EntryFields.Date;
     body: EntryFields.Text;
     bodyText?: EntryFields.RichText;
+    contentBlocks?: Entry<TypeCodeBlockFields | TypeFigureFields | TypeRichTextFields | TypeSummaryDetailsFields | TypeTwoUpFields>[];
     snippet: EntryFields.Text;
     tags: Entry<TypeTagFields>[];
     heroImage?: Asset;

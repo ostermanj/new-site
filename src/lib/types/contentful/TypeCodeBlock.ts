@@ -5,6 +5,7 @@ import type { WithContentTypeLink } from "./WithContentTypeLink";
 export interface TypeCodeBlockFields {
     internalName: EntryFields.Symbol;
     code: EntryFields.Text;
+    language: "css" | "javascript" | "xml";
 }
 
 export type TypeCodeBlock = Entry<TypeCodeBlockFields>;

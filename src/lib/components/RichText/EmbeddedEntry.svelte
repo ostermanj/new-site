@@ -7,6 +7,8 @@
     <TwoUp fields={fields as TypeTwoUpFields}></TwoUp>
 {:else if entry.sys.contentType.sys.id === 'codeBlock'}
     <CodeBlock fields={fields as TypeCodeBlockFields}></CodeBlock>
+{:else if entry.sys.contentType.sys.id === 'notice'}
+    <Notice fields={fields as TypeNoticeFields}></Notice>
 {:else}
     <div>EMBEDDED_ENTRY <pre>{JSON.stringify(entry, null, 4)   }</pre></div>
 {/if}
@@ -20,6 +22,7 @@
     import SummaryDetails from "../SummaryDetails.svelte";
     import TwoUp from "../TwoUp.svelte";
     import CodeBlock from "../CodeBlock.svelte";
+    import Notice from "../Notice.svelte";
 
     interface Props {
         block: TopLevelBlock
