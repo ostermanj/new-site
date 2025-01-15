@@ -12,5 +12,6 @@
 <style>
     img {
         height: auto;
+        margin-inline: auto;
     }
 </style>

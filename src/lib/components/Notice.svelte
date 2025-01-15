@@ -1,4 +1,4 @@
-<aside>
+<aside class="embedded-entry-pullout">
     <h2 class="tc-1">{fields.label}</h2>
     <RichText doc={fields.text}></RichText>
 </aside>

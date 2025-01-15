@@ -1,6 +1,6 @@
 <!-- TODO: PULL MARGINS OUT -->
 <svelte:options css={'injected'}></svelte:options>
-<div class="grid">
+<div class={["grid", {'embedded-entry-pullout': fields.pullout}]}>
     {#each figures as figure}
         <Figure fields={figure.fields as TypeFigureFields}></Figure>
     {/each}

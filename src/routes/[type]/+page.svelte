@@ -161,7 +161,7 @@
                 })
             }
             const container = document.getElementById('map-cont');
-            container?.insertAdjacentHTML('afterbegin','<div id="map-cont--inner"></div>');
+            container?.insertAdjacentHTML('afterbegin','<div id="map-cont--inner" class="embedded-entry-pullout"></div>');
             const timeout = setInterval(() => {
                 console.log('nope');
                 if (mapboxgl){

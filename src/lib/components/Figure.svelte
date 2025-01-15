@@ -8,11 +8,11 @@
     {/if}
 {/snippet}
 {#if !fields.distorted}
-<figure class={['figure', 'flow', {'small': fields.size === 'Small' }]}>
+<figure class={['figure', 'flow', {'small': fields.size === 'Small', 'embedded-entry-pullout': fields.pullout }]}>
     {@render figcontent()}
 </figure>
 {:else}
-<div class="grid">
+<div class={["grid", {'embedded-entry-pullout': fields.pullout}]}>
     <div class="background"></div>
     <figure class={['flow', {'small': fields.size === 'Small' }]}>
         {@render figcontent()}
@@ -28,6 +28,7 @@
     }
     .small {
         max-width: calc(var(--l-max-text-column) / 2);
+        max-width: 50%;
         margin-inline: auto;
     }
     figcaption {

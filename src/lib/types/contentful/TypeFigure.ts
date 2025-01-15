@@ -8,6 +8,7 @@ export interface TypeFigureFields {
     caption?: EntryFields.RichText;
     size: "Default" | "Small";
     distorted?: EntryFields.Boolean;
+    pullout?: EntryFields.Boolean;
 }
 
 export type TypeFigure = Entry<TypeFigureFields>;
