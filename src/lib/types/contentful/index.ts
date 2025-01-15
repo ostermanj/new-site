@@ -27,6 +27,8 @@ export { isTypePage } from "./TypePage";
 export type { LocalizedTypePage, LocalizedTypePageFields, TypePage, TypePageFields } from "./TypePage";
 export { isTypePeaceCorpsPost } from "./TypePeaceCorpsPost";
 export type { LocalizedTypePeaceCorpsPost, LocalizedTypePeaceCorpsPostFields, TypePeaceCorpsPost, TypePeaceCorpsPostFields } from "./TypePeaceCorpsPost";
+export { isTypePlaceholderDiv } from "./TypePlaceholderDiv";
+export type { LocalizedTypePlaceholderDiv, LocalizedTypePlaceholderDivFields, TypePlaceholderDiv, TypePlaceholderDivFields } from "./TypePlaceholderDiv";
 export { isTypePoem } from "./TypePoem";
 export type { LocalizedTypePoem, LocalizedTypePoemFields, TypePoem, TypePoemFields } from "./TypePoem";
 export { isTypeProject } from "./TypeProject";

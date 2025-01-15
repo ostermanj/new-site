@@ -1,4 +1,3 @@
-<pre>Rich Text</pre>
 {#each doc.content as block }
     {@const Component = blockTypeToComponent[block.nodeType]}
     <Component {block}></Component>
@@ -57,7 +56,6 @@
     }
 </script>
 <script lang="ts">
-    
     interface Props {
         doc: Document
     }
@@ -65,4 +63,5 @@
     // blockTypeToComponent.document =  RichText;
     const props: Props = $props()
     const { doc } = props;
+    console.log(doc);
 </script>

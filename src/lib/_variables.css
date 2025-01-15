@@ -20,6 +20,7 @@
 	--fz-larger-2: calc(1em * pow(var(--type-interval), 2)); 
 	--fz-larger-1: calc(1em * pow(var(--type-interval), 1)); 
 	--fz-default: calc(1em * pow(var(--type-interval), 0)); 
+	--fz-smaller-0-5: calc(1em * pow(var(--type-interval), -0.5)); 
 	--fz-smaller-1: calc(1em * pow(var(--type-interval), -1)); 
 	--fz-smaller-2: calc(1em * pow(var(--type-interval), -2)); 
 }

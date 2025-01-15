@@ -1,5 +1,5 @@
 <!-- TODO: srcset -->
-<img {src} {alt} {width} {height} loading="lazy" style="height:auto;"/>
+<img {src} {alt} {width} {height} loading="lazy" />
 <script lang="ts">
     import type { Asset, AssetDetails } from "contentful";
     const props = $props();
@@ -9,3 +9,8 @@
     const width = (asset.fields.file?.details as AssetDetails).image?.width ?? '';
     const height = (asset.fields.file?.details as AssetDetails).image?.height ?? '';
 </script>
+<style>
+    img {
+        height: auto;
+    }
+</style>

@@ -1,3 +1,14 @@
+<svelte:head>
+    {#if isPeaceCorps}
+    <script defer src='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js'></script>
+    <!-- <script defer src='/init-map.js'></script> -->
+    {@html `<link
+        rel="preload"
+        as="style"
+        href='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css'
+        onload="this.rel = 'stylesheet'" />`}
+    {/if}
+</svelte:head>
 {#if isPeaceCorps}
 <header>
     <img class="hero" src="{data.pageFields?.hero?.fields.file?.url as string}" alt="{data.pageFields?.hero?.fields.description as string}">
@@ -6,7 +17,7 @@
 <div class="u-column flow">
     <div class="secondary-title">{data.pageFields?.secondaryTitle}</div>
     {#if data.pageFields?.bodyText}
-    {@html documentToHtmlString(data.pageFields.bodyText)}
+        <RichText doc={data.pageFields.bodyText}></RichText>
     {/if}
 </div>
 {:else}
@@ -105,13 +116,88 @@
                 filter: url('#noise-lite');
         }
     }
+    :global(#map-cont) {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%;
+    }
+    :global(#map-cont--inner) {
+        position: absolute;
+        inset: 0;
+    }
     
 </style>
+<script module>
+    declare const mapboxgl: {[key: string]: any} | undefined; 
+</script>
 <script lang="ts">
+    
     import { page } from "$app/state";
-    import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
     import { contentIdToSlug } from "$lib/mapping.js";
+    import RichText from '$lib/components/RichText/index.svelte';
+	import { onMount } from "svelte";
     const { data } = $props();
     let isPeaceCorps = $derived(page.url.pathname === '/peace-corps');
+    let _map: {[key: string]: any} | undefined; 
+
     
+    
+    onMount(() => {
+        if (!isPeaceCorps) {
+            return;
+        }
+        (function(){
+            function callback(entries: IntersectionObserverEntry[], observer: IntersectionObserver){
+                entries.forEach(entry => {
+                    if (entry.isIntersecting){
+                        requestAnimationFrame(() => {
+                            _map?.flyTo({
+                                center: [-11.0813, 21.1456],
+                                zoom: 3.9
+                            });
+                            observer.disconnect();
+                        })
+                    }
+                })
+            }
+            const container = document.getElementById('map-cont');
+            container?.insertAdjacentHTML('afterbegin','<div id="map-cont--inner"></div>');
+            const timeout = setInterval(() => {
+                console.log('nope');
+                if (mapboxgl){
+                    initMap()
+                }
+            })
+            function initMap(){
+                clearInterval(timeout);
+                if (!mapboxgl) {
+                    return
+                }
+                mapboxgl.accessToken = 'pk.eyJ1Ijoib3N0ZXJtYW5qIiwiYSI6ImNsOWl5NmF5ZTA4ODgzd28wczZ3bm9oYm0ifQ.qLNG2qiKlw8RkjFlHwsHhQ';
+                    _map = new mapboxgl.Map({
+                        container: 'map-cont--inner', // container ID
+                        style: 'mapbox://styles/mapbox/satellite-streets-v11?optimize=true', // style URL
+                        center: [-100.4544, 37.0351], // starting position [lng, lat]
+                        // center: [-11.0813, 21.1456], // starting position [lng, lat]
+                        zoom: 1.256, // starting zoom
+                        minzoom: 1.256,
+                        maxzoom: 3.9,
+                        // zoom: 3.9, // starting zoom
+                        projection: 'globe' // display the map as a 3D globe
+                    });
+                if (!_map) return;
+                _map.scrollZoom.disable();
+                _map.on('load', () => {
+                    const options = {
+                        root: null,
+                        threshold: 1
+                    };
+                    const observer = new IntersectionObserver(callback, options);
+                    if (container){
+                        observer.observe(container);
+                    }
+                })
+            }
+        })();
+    })
 </script>

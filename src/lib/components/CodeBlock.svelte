@@ -1,4 +1,4 @@
-<pre use:highlightCode class="tc-2" style="--timeline: --{fields.internalName.replaceAll(' ','').replaceAll(/[,.;:]/g,'')}"><code>{fields.code}</code></pre>
+<pre use:highlightCode class="tc-2" style="--timeline: --{fields.internalName.replaceAll(' ','').replaceAll(/[,.;:]/g,'')}">{@html escapeHTML(fields.code)}</pre>
 <script module>
     import hljs from 'highlight.js/lib/core';
     import xml from 'highlight.js/lib/languages/xml';
@@ -25,8 +25,14 @@
     const { fields } = props;
     hljs.registerLanguage(fields.language, languages[fields.language]);
     const highlightCode = (node) => {
-        hljs.highlightBlock(node);
+        hljs.highlightElement(node);
     }
+     const escapeHTML = (html: string) => (html
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;"));
 </script>
 <style>
     pre {

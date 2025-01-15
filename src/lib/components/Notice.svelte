@@ -23,7 +23,8 @@
         background-color: oklch(from var(--c-background-1) calc(l* 0.25) c h);
         color: #fff;
         border: 2px solid oklch(from var(--c-background-1) calc(l* 0.25) c h);
-        padding: 0.5rem;
+        padding-block: 0.2rem;
+        padding-inline: 0.5rem;
         inset-inline-start: 50%;
         inset-block-start: 0;
         transform: translate(-50%, -50%);

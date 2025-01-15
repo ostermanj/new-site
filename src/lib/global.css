@@ -68,3 +68,8 @@ ul {
 .grid + figure.small {
     margin-block-start: 0.5rem;
 }
+
+hr {
+    border-color: var(--c-secondary-1);
+    border-style: solid;
+}

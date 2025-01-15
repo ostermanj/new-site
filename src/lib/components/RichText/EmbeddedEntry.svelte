@@ -1,4 +1,3 @@
-<div>EmbeddedEntry</div>
 {#if entry.sys.contentType.sys.id === 'figure'}
     <Figure fields={fields as TypeFigureFields}></Figure>
 {:else if entry.sys.contentType.sys.id === 'summaryDetails'}
@@ -11,6 +10,8 @@
     <Notice fields={fields as TypeNoticeFields}></Notice>
 {:else if entry.sys.contentType.sys.id === 'journalQuote'}
     <JournalQuote fields={fields as TypeJournalQuoteFields}></JournalQuote>
+{:else if entry.sys.contentType.sys.id === 'placeholderDiv'}
+    <PlaceholderDiv fields={fields as TypePlaceholderDivFields}></PlaceholderDiv>
 {:else}
     <div>EMBEDDED_ENTRY <pre>{JSON.stringify(entry, null, 4)   }</pre></div>
 {/if}
@@ -18,7 +19,7 @@
 <script lang="ts">
 	import type { TopLevelBlock } from "@contentful/rich-text-types";
 
-    import type { TypeFigureFields, TypeSummaryDetailsFields, TypeTwoUpFields, TypeCodeBlockFields, TypeNoticeFields, TypeJournalQuoteFields } from "$lib/types/contentful";
+    import type { TypeFigureFields, TypeSummaryDetailsFields, TypeTwoUpFields, TypeCodeBlockFields, TypeNoticeFields, TypeJournalQuoteFields, TypePlaceholderDivFields } from "$lib/types/contentful";
 	import type { Entry } from "contentful";
     import Figure from "../Figure.svelte";
     import SummaryDetails from "../SummaryDetails.svelte";
@@ -26,6 +27,7 @@
     import CodeBlock from "../CodeBlock.svelte";
     import Notice from "../Notice.svelte";
     import JournalQuote from "../JournalQuote.svelte";
+    import PlaceholderDiv from "./PlaceholderDiv.svelte";
 
     interface Props {
         block: TopLevelBlock
@@ -35,7 +37,7 @@
     const { block } = props;
     console.log(block);
     const entry = block.data.target as Entry;
-    const fields = entry.fields as unknown as ( TypeFigureFields | TypeSummaryDetailsFields | TypeTwoUpFields | TypeCodeBlockFields);
+    const fields = entry.fields as unknown as ( TypeFigureFields | TypeSummaryDetailsFields | TypeTwoUpFields | TypeCodeBlockFields | TypeNoticeFields | TypeJournalQuoteFields | TypePlaceholderDivFields);
     console.log(fields)
     
 </script>

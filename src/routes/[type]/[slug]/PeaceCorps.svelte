@@ -1,3 +1,6 @@
+{#if fields.isPoem}
+    <Poem {fields}></Poem>
+{:else}
 <header class="u-column-wide flow">
     <h1>{fields.title}</h1>
     {#if fields.subtitle}
@@ -12,6 +15,7 @@
     <RichText doc={fields.bodyText}></RichText>
 </div>
 {/if}
+{/if}
 <script lang="ts">
     interface Props {
         fields: TypePeaceCorpsPostFields; 
@@ -19,6 +23,7 @@
 	import { type TypePeaceCorpsPostFields } from '$lib/types/contentful';
     
     import RichText from '$lib/components/RichText/index.svelte'
+    import Poem from './Poem.svelte'
     const props: Props = $props();
     const { fields } = props;
 </script>
