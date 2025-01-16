@@ -32,13 +32,15 @@
         </div>
     </h1>
 </header>
-<section class="u-column flow">
-    <p class="tc2"><span class="handwave">👋🏻</span> Hello.</p>
-    {@html documentToHtmlString(data.body)}
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis tenetur praesentium nemo nisi eos debitis dicta quae recusandae. Culpa, aliquid.</p>
+<section>
+    <div class="u-column flow">
+        <p class="tc2"><span class="handwave">👋🏻</span> Hello.</p>
+        {@html documentToHtmlString(data.body)}
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis tenetur praesentium nemo nisi eos debitis dicta quae recusandae. Culpa, aliquid.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis tenetur praesentium nemo nisi eos debitis dicta quae recusandae. Culpa, aliquid.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis tenetur praesentium nemo nisi eos debitis dicta quae recusandae. Culpa, aliquid.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis tenetur praesentium nemo nisi eos debitis dicta quae recusandae. Culpa, aliquid.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis tenetur praesentium nemo nisi eos debitis dicta quae recusandae. Culpa, aliquid.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis tenetur praesentium nemo nisi eos debitis dicta quae recusandae. Culpa, aliquid.</p>
+    </div>
 </section>
 <footer>
     <SpriteFile></SpriteFile>
@@ -59,23 +61,26 @@
         0% {
             transform: rotate(0);
         }
-        5% {
+        15% {
             transform: rotate(10deg);
         }
-        10% {
+        20% {
             transform: rotate(-10deg);
         }
-        15% {
+        25% {
             transform: rotate(0);
         }
-        85% {
+        70% {
             transform: rotate(0);
         }
-        90% {
+        75% {
             transform: rotate(10deg);
+        }
+        80% {
+            transform: rotate(-10deg);
         }
         95% {
-            transform: rotate(-10deg);
+            transform: rotate(0);
         }
         100% {
             transform: rotate(0);
@@ -93,9 +98,10 @@
 
     header {
         display: flex;
-        align-items: end;
+        align-items: start;
         justify-content: end;
         color: var(--c-primary-2);
+        background-color: var(--c-background-1);
         height: 100dvh;
         margin-inline: auto;
         
@@ -103,6 +109,7 @@
     h1 {
         display: flex;
         justify-content: end;
+        align-self: end;
         width: 100%;
         max-width: 84rem;
         margin-inline: auto;
@@ -115,8 +122,9 @@
         transform-origin: right bottom;
     }
     section {
-        
+        padding-block-start: 40vh;
         hyphens: auto;
+        background-image: linear-gradient(to bottom, var(--c-background-1), #fff 40vh);
     }  
     p:first-of-type {
         text-align: center;
@@ -148,13 +156,12 @@
             width: 50%;
         }
     }
-    /* TODO: change this to something else */
     @supports ((animation-timeline: scroll()) and (animation-range: 0% 100%)) {
-    /* @supports (nonexistent: 100%) { */
         header {
             align-items: start;
             height: 150dvh;
             view-timeline-name: --observerTimeline;
+            background-color: transparent;
         }
         .background {
             position: fixed;
@@ -184,10 +191,9 @@
             animation-timing-function: linear;
         }
         section {
-            /* margin-block-start: 30dvh; */
-            margin-block-start: 0;
             position: relative;
             z-index: 1;
+            background-image: none;
         }
         .handwave {
             display: inline-block;
