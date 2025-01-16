@@ -6,16 +6,18 @@
     {/if}
     <div class="grid tc-1">
         {#each items ?? [] as item}
+        <a class={['link',{'no-slug': !item.fields.slug}]} href="/{contentIdToSlug[item.sys.contentType.sys.id as keyof typeof contentIdToSlug]}/{item.fields.slug}">
             <article class="flow">
                 {#if showContentTypes}
                     <span class="content-type">{contentSlugToSingular[contentIdToSlug[item.sys.contentType.sys.id as keyof typeof contentIdToSlug] as keyof typeof contentSlugToSingular]}</span>
                 {/if}
-                <span class="h2"><a class={{'no-slug': !item.fields.slug}} href="/{contentIdToSlug[item.sys.contentType.sys.id as keyof typeof contentIdToSlug]}/{item.fields.slug}">{item.fields.title}</a></span>
+                <span class="h2">{item.fields.title}</span>
                 <p>{item.fields.snippet}</p>
                 <div class="date-published">
                     <time datetime={item.fields.datePublished}>{new Date(  item.fields.datePublished  ).toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</time>
                 </div>
             </article>
+        </a>
         {/each}
     </div>
 </section>
@@ -34,7 +36,21 @@
     .section-heading {
         text-align: center;
     }
+    .link {
+        color: currentColor;
+        text-decoration: none;
+    }
+    .link:hover article, .link:focus article {
+        border-color: var(--c-primary-2);
+    }
+    .link:hover .h2, .link:focus .h2 {
+        text-decoration: underline;
+    }
+    .link:active article {
+        filter: drop-shadow(0px 0px 3px var(--c-background-1));
+    }
     article {
+        height: 100%;
         display: grid;
         grid-template-rows: min-content min-content 1fr;
         border: 2px solid var(--c-primary-1);
