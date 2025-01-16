@@ -14,14 +14,11 @@
     
 </template>
 <script lang="ts">
-    interface Props {
-        fields: TypeBlogPostFields; 
-    };
 	import { type TypeBlogPostFields } from '$lib/types/contentful';
     
     import RichText from '$lib/components/RichText/index.svelte'
-    const props: Props = $props();
-    const { fields } = props;
+    // let props: Props = $props();
+    const { fields }: {fields: TypeBlogPostFields} = $props();
 </script>
 <style>
     h1 {

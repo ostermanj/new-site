@@ -16,8 +16,8 @@
     
     import RichText from '$lib/components/RichText/index.svelte'
 	import Image from '$lib/components/Image.svelte';
-    const props: Props = $props();
-    const { fields } = props;
+    let props: Props = $props();
+    let { fields } = props;
 </script>
 <style>
     .poem {

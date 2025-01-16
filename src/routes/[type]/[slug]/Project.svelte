@@ -30,8 +30,8 @@
     
     import RichText from '$lib/components/RichText/index.svelte'
     import Sprite from '$lib/components/Sprite.svelte';
-    const props: Props = $props();
-    const { fields } = props;
+    let props: Props = $props();
+    let { fields } = props;
 </script>
 <style lang="scss">
     h1 {

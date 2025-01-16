@@ -18,7 +18,7 @@
     import TableRow from './TableRow.svelte';
     import TableCell from './TableCell.svelte';
     import TableHeaderCell from './TableHeaderCell.svelte';
-
+    import EntryHyperlink from './EntryHyperlink.svelte';
     import DefaultInline from './DefaultInline.svelte';
     import Hyperlink from './Hyperlink.svelte';
     import type { Document } from '@contentful/rich-text-types';
@@ -27,7 +27,7 @@
         "asset-hyperlink": DefaultInline,
         "embedded-entry-inline": DefaultInline,
         "embedded-resource-inline": DefaultInline,
-        "entry-hyperlink": DefaultInline,
+        "entry-hyperlink": EntryHyperlink,
         "hyperlink": Hyperlink,
         "resource-hyperlink": DefaultInline,
     }

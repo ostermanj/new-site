@@ -57,7 +57,17 @@ a {
     color: var(--c-primary-2);
     text-underline-offset: 3px;
     text-decoration-color: var(--c-primary-1);
-    
+}
+a:visited {
+    text-decoration-color: var(--c-primary-2);
+    color: var(--c-primary-2);
+}
+a:hover, a:focus {
+    color: var(--c-primary-2);
+    text-decoration-color: var(--c-primary-2);
+}
+a:active {
+    filter: drop-shadow(1px 1px 0px var(--c-background-1));
 }
 ul {
     padding-inline-start: 1.6em;

@@ -136,7 +136,7 @@
     import { contentIdToSlug } from "$lib/mapping.js";
     import RichText from '$lib/components/RichText/index.svelte';
 	import { onMount } from "svelte";
-    const { data } = $props();
+    let { data } = $props();
     let isPeaceCorps = $derived(page.url.pathname === '/peace-corps');
     let _map: {[key: string]: any} | undefined; 
 

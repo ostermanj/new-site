@@ -17,7 +17,7 @@
 	// import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
     const { data } = $props();
-    const fields = data.fields;
+    const { fields } = $derived(data);
 
     
 </script>
