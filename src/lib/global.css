@@ -43,8 +43,9 @@ h1 {
     font-size: var(--fz-larger-2);
     color: oklch(from var(--c-background-1) calc( l * 0.5) c h);
 }
-h2 {
+h2, .h2 {
     font-size: var(--fz-larger-1);
+    line-height: 1.1;
 }
 
 body {
@@ -74,6 +75,9 @@ ul {
 }
 .flow > * + * {
 	margin-block-start: 1lh;
+}
+.flow-loose > * + * {
+	margin-block-start: 2lh;
 }
 .grid + figure.small {
     margin-block-start: 0.5rem;

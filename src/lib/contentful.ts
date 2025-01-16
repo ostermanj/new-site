@@ -6,6 +6,14 @@ const client = contentful.createClient({
     accessToken: C_TOKEN
 });
 
+export const getHomepage = async () => {
+    const entries = await client.getEntries({
+        content_type: 'homepage',
+        include: 2,
+    });
+    return entries;
+}
+
 export const getEntryBySlugAndType = async ({slug, type}: {slug: string, type: string}) => {
     const entries = await client.getEntries({
         content_type: type,

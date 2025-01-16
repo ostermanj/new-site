@@ -26,3 +26,8 @@ export const contentSlugToTitle = {
     'projects': 'Projects',
     'peace-corps': 'Sand in the Couscous'
 };
+export const contentSlugToSingular = {
+    'blog-posts': 'Blog post',
+    'projects': 'Project',
+    'peace-corps': 'Peace Corps'
+};

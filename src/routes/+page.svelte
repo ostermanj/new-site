@@ -1,13 +1,15 @@
 <script lang="ts">
-	import type { TypeNewPageFields } from '$lib/types/contentful/TypeNewPage';
 	
     import MainNavigation from "$lib/components/MainNavigation.svelte";
 	import NameImage from "$lib/components/NameImage.svelte";
     import SpriteFile from "$lib/components/SpriteFile.svelte";
-    import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+    import RichText from "$lib/components/RichText/index.svelte";
+    import ContentGrid from "$lib/components/ContentGrid.svelte";
+    
     import { onNavigate } from '$app/navigation';
+	import type { TypeHomepageFields } from '$lib/types/contentful';
 
-	const { data }: {data: TypeNewPageFields} = $props();
+	const { data }: {data: TypeHomepageFields} = $props();
 
     onNavigate((navigation) => {
 	if (!document.startViewTransition) return;
@@ -32,15 +34,14 @@
         </div>
     </h1>
 </header>
-<section>
+<section class="flow-loose">
     <div class="u-column flow">
         <p class="tc2"><span class="handwave">👋🏻</span> Hello.</p>
-        {@html documentToHtmlString(data.body)}
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis tenetur praesentium nemo nisi eos debitis dicta quae recusandae. Culpa, aliquid.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis tenetur praesentium nemo nisi eos debitis dicta quae recusandae. Culpa, aliquid.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis tenetur praesentium nemo nisi eos debitis dicta quae recusandae. Culpa, aliquid.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis tenetur praesentium nemo nisi eos debitis dicta quae recusandae. Culpa, aliquid.</p>
+        <RichText doc={data.bodyText}></RichText>
     </div>
+    {#if data.featuredBlogPosts}
+        <ContentGrid items={data.featuredBlogPosts} showContentTypes={true} heading={{level: 2, text: 'Featured stuff'}}></ContentGrid>
+    {/if}
 </section>
 <footer>
     <SpriteFile></SpriteFile>
