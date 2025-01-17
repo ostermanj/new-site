@@ -43,9 +43,6 @@
         <ContentGrid items={data.featuredBlogPosts} showContentTypes={true} heading={{level: 2, text: 'Featured stuff'}}></ContentGrid>
     {/if}
 </section>
-<footer>
-    <SpriteFile></SpriteFile>
-</footer>
 <style>
     @keyframes test {
         0% {

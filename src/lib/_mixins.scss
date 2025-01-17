@@ -1,0 +1,9 @@
+ @mixin vertical-menu {
+    margin-block-start: 0;
+    padding-block: 1rem;
+    position: absolute;
+    grid-auto-flow: row;
+    width: 56px;
+    height: auto;
+    border-inline-end: 1px solid currentColor;
+}

@@ -22,5 +22,9 @@
     
 </script>
 <style>
-    
+    article {
+        width: 100%;
+        max-width: max(75vw, var(--l-max-text-column));
+        margin-inline: auto;
+    }
 </style>
