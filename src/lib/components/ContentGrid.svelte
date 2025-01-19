@@ -6,7 +6,7 @@
     {/if}
     <div class="grid tc-1">
         {#each items ?? [] as item}
-        <a class={['link',{'no-slug': !item.fields.slug}]} href="/{contentIdToSlug[item.sys.contentType.sys.id as keyof typeof contentIdToSlug]}/{item.fields.slug}">
+        <a class={['link']} href="/{contentIdToSlug[item.sys.contentType.sys.id as keyof typeof contentIdToSlug]}/{item.fields.slug}">
             <article class="flow">
                 {#if showContentTypes}
                     <span class="content-type">{contentSlugToSingular[contentIdToSlug[item.sys.contentType.sys.id as keyof typeof contentIdToSlug] as keyof typeof contentSlugToSingular]}</span>
@@ -66,13 +66,6 @@
         hyphens: auto;
         margin-block-start: 0;
         
-    }
-   .h2 a {
-        text-decoration: none;
-        color: inherit;
-        &.no-slug {
-            opacity: 0.5;
-        }
     }
     .grid {
         display: grid;

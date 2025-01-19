@@ -1,6 +1,5 @@
 <a href="/{contentIdToSlug[targetContentType]}/{targetFields.slug}" onclick={(e) => {
     e.preventDefault();
-    console.log(`/${contentIdToSlug[targetContentType]}/${targetFields.slug}`);
     goto(`/${contentIdToSlug[targetContentType]}/${targetFields.slug}`, {invalidateAll: true});
 }}>
     {#each content.content as text}

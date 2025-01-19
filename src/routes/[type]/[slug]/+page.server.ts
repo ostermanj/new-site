@@ -9,9 +9,7 @@ export const load: PageServerLoad = async ({params}) => {
         errorPage(404, 'Not found');
     }
     const entries = await getEntryBySlugAndType({type: contentType, slug: params.slug});
-    console.log({entries});
     if (!entries || !entries.items.length) {
-        console.log('no entries!')
         errorPage(404, 'Not found');
     }
     const fields = entries.items[0].fields as unknown as ContentIdToFieldsType[typeof contentType];

@@ -55,7 +55,6 @@
 </style>
 <script lang="ts">
     import type { TypeFigureFields } from "$lib/types/contentful/TypeFigure";
-	import { onMount } from "svelte";
     import Image from "./Image.svelte";
     import RichText from "./RichText/index.svelte";
     interface Props {
@@ -63,9 +62,4 @@
     }
     const props: Props = $props();
     const { fields } = props;
-    console.log('figure set up');
-
-    onMount(() => {
-        console.log('figure mount!');
-    })
 </script>

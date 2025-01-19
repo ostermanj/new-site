@@ -35,7 +35,6 @@ const entryToXML = (entry: TypeProject | TypeBlogPost | TypePeaceCorpsPost) => {
 export const GET: RequestHandler = async () => {
     const hpEntries = await getHomepage();
     const tagline = (hpEntries?.items[0].fields as unknown as TypeHomepageFields).newOverview
-    console.log(tagline);
     const entries = includeContentTypes.map(contentType => getPaginatedCollection(contentType));
     const resolvedEntries = await Promise.all(entries);
     const items = resolvedEntries.map(entry => entry.items).flat(1);

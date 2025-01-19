@@ -14,5 +14,4 @@
 
     const props: Props = $props();
     const { listItem } = props;
-    console.log(listItem);
 </script>

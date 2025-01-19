@@ -13,5 +13,4 @@
 
     const props: Props = $props();
     const { block } = props;
-    console.log(block);
 </script>

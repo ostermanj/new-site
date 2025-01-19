@@ -59,9 +59,6 @@
     interface Props {
         doc: Document
     }
-
-    // blockTypeToComponent.document =  RichText;
     const props: Props = $props()
     const { doc } = props;
-    console.log(doc);
 </script>

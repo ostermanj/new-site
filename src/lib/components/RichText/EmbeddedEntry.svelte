@@ -37,10 +37,8 @@
 
     const props: Props = $props();
     const { block } = props;
-    console.log(block);
     const entry = block.data.target as Entry;
     const fields = entry.fields as unknown as ( TypeFigureFields | TypeSummaryDetailsFields | TypeTwoUpFields | TypeCodeBlockFields | TypeNoticeFields | TypeJournalQuoteFields | TypePlaceholderDivFields);
-    console.log(fields)
     
 </script>
 <style>
