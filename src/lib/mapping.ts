@@ -11,12 +11,19 @@ export type ContentIdToFieldsType = {
     peaceCorpsPost: TypePeaceCorpsPostFields;
 };
 
+type ContentIdToSlugType = {
+    blogPost: 'blog-posts';
+    project: 'projects';
+    peaceCorpsPost: 'peace-corps';
+    string?: undefined;
+}
+
 export const contentSlugToId = {
     'blog-posts': 'blogPost',
     'projects': 'project',
     'peace-corps': 'peaceCorpsPost'
 };
-export const contentIdToSlug = {
+export const contentIdToSlug: ContentIdToSlugType = {
     'blogPost' : 'blog-posts',
     'project' : 'projects',
     'peaceCorpsPost' : 'peace-corps',

@@ -6,6 +6,7 @@ import type { WithContentTypeLink } from "./WithContentTypeLink";
 export interface TypeTwoUpFields {
     internalName: EntryFields.Symbol;
     figures: Entry<TypeFigureFields>[];
+    pullout?: EntryFields.Boolean;
 }
 
 export type TypeTwoUp = Entry<TypeTwoUpFields>;

@@ -8,7 +8,9 @@ import type { WithContentTypeLink } from "./WithContentTypeLink";
 
 export interface TypeHomepageFields {
     overview: EntryFields.Text;
+    newOverview: EntryFields.Text;
     body: EntryFields.Text;
+    bodyText: EntryFields.RichText;
     featuredBlogPosts?: Entry<TypeBlogPostFields | TypePeaceCorpsPostFields | TypeProjectFields>[];
     featuredWorkExperience?: Entry<TypeWorkPositionFields>[];
 }
