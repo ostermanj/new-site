@@ -1,7 +1,7 @@
 <li>
     {#each listItem.content as content}
     {@const Component = blockTypeToComponent[content.nodeType as ListItemBlockEnum]}
-        <Component block={content as Block}></Component>
+        <Component block={content as Block & TopLevelBlock}></Component>
     {/each}
 </li>
 <script lang="ts">

@@ -15,7 +15,6 @@ type ContentIdToSlugType = {
     blogPost: 'blog-posts';
     project: 'projects';
     peaceCorpsPost: 'peace-corps';
-    string?: undefined;
 }
 
 export const contentSlugToId = {

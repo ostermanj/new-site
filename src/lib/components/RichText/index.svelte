@@ -2,8 +2,7 @@
     {@const Component = blockTypeToComponent[block.nodeType]}
     <Component {block}></Component>
 {/each}
-<script module>
-    import RichText from '$lib/components/RichText/index.svelte'
+<script module lang="ts">
     import Paragraph from './Paragraph.svelte';
     import Heading from './Heading.svelte'
     import OrderedList from './OrderedList.svelte';
