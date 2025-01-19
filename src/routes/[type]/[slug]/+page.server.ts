@@ -1,8 +1,6 @@
 import { getEntryBySlugAndType } from '$lib/contentful';
 import { contentSlugToId, type ContentIdToFieldsType } from '$lib/mapping';
 import { error as errorPage } from '@sveltejs/kit';
-// import richTextOptions from '$lib/rich-text-options.js'
-// import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({params}) => {

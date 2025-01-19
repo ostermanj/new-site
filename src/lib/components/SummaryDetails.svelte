@@ -1,12 +1,14 @@
 <details>
     {#if fields.summary}
-    <summary>{@html documentToHtmlString(fields.summary)}</summary>
+    <summary>
+        <RichText doc={fields.summary}></RichText>
+    </summary>
     {/if}
-    {@html documentToHtmlString(fields.details)}
+    <RichText doc={fields.details}></RichText>
 </details>
 <script lang="ts">
     import type { TypeSummaryDetailsFields } from "$lib/types/contentful";
-    import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+    import RichText from '$lib/components/RichText/index.svelte';
     interface Props {
         fields: TypeSummaryDetailsFields
     }

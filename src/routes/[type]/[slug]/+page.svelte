@@ -25,8 +25,6 @@
 	import Project from './Project.svelte';
     import PeaceCorps from './PeaceCorps.svelte';
 
-    // import richTextOptions from '$lib/rich-text-options.js'
-	// import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
     const { data } = $props();
     const { fields } = $derived(data);
