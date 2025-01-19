@@ -24,6 +24,17 @@
 
     
 </script>
+<svelte:head>
+    <meta name="description" content={data.newOverview} />
+    <meta name="og:title" content="John Osterman" />
+    <meta name="og:type" content="website" />
+    <meta name="og:url" content="https://osterman.blog" />
+    <meta name="og:image" content="https://osterman.blog/johnosterman.png" />
+    <meta name="og:site_name" content="John Osterman" />
+    <meta name="og:description" content={data.newOverview} />
+    <link rel="alternate" type="application/rss+xml" title="John Osterman" href="/rss">
+    <link rel="canonical" href="https://osterman.blog">
+</svelte:head>
 <header>
     <MainNavigation isHome={true}></MainNavigation>
     <div class="background"></div>

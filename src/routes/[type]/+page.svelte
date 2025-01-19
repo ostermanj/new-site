@@ -1,4 +1,12 @@
 <svelte:head>
+    <meta name="description" content={data.pageFields?.snippet} />
+    <meta name="og:title" content={contentSlugToTitle[page.params.type as keyof typeof contentSlugToTitle]} />
+    <meta name="og:type" content="website" />
+    <meta name="og:url" content={`https://osterman.blog/${page.url.pathname}`} />
+    <meta name="og:image" content={data.pageFields?.hero?.fields.file?.url as string ?? 'https://osterman.blog/johnosterman.png'} />
+    <meta name="og:site_name" content="John Osterman" />
+    <meta name="og:description" content={data.pageFields?.snippet} />
+    <link rel="canonical" href={`https://osterman.blog/${page.url.pathname}`}>
     {#if isPeaceCorps}
     <script defer src='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js'></script>
     <!-- <script defer src='/init-map.js'></script> -->
@@ -79,6 +87,7 @@
 </style>
 <script module>
     declare const mapboxgl: {[key: string]: any} | undefined; 
+    import { contentSlugToTitle } from "$lib/mapping";
 </script>
 <script lang="ts">
     
