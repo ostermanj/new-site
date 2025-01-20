@@ -6,5 +6,3 @@
 </script>
 {@render children()}
 <Footer isPoem={page.data.fields?.isPoem as boolean | undefined}></Footer>
-<style>
-</style>

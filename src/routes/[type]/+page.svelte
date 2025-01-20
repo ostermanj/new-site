@@ -85,7 +85,7 @@
     }
     
 </style>
-<script module>
+<script module lang="ts">
     declare const mapboxgl: {[key: string]: any} | undefined; 
     import { contentSlugToTitle } from "$lib/mapping";
 </script>
