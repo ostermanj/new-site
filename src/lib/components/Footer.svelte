@@ -18,7 +18,9 @@
         height: 300px;
         margin-block-start: 150px;
         background-image: linear-gradient(to bottom, var(--c-background-2),  var(--c-secondary-1));
-        color: var(--c-background-1)
+        color: var(--c-background-1);
+        position: relative;
+        z-index: 1;
     }
     div {
         width: 100%;
