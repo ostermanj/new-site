@@ -1,14 +1,16 @@
-import type { TypeBlogPost, TypeBlogPostFields, TypePeaceCorpsPost, TypePeaceCorpsPostFields, TypeProject, TypeProjectFields } from '$lib/types/contentful';
+import type { TypeBlogPost, TypeBlogPostFields, TypePeaceCorpsPost, TypePeaceCorpsPostFields, TypeProject, TypeProjectFields, TypeSlashItem, TypeSlashItemFields } from '$lib/types/contentful';
 
 export type ContentIdToType = {
     blogPost: TypeBlogPost;
     project: TypeProject;
     peaceCorpsPost: TypePeaceCorpsPost;
+    slashItem: TypeSlashItem;
 };
 export type ContentIdToFieldsType = {
     blogPost: TypeBlogPostFields;
     project: TypeProjectFields;
     peaceCorpsPost: TypePeaceCorpsPostFields;
+    slashItem: TypeSlashItemFields;
 };
 
 type ContentIdToSlugType = {
@@ -20,7 +22,7 @@ type ContentIdToSlugType = {
 export const contentSlugToId = {
     'blog-posts': 'blogPost',
     'projects': 'project',
-    'peace-corps': 'peaceCorpsPost'
+    'peace-corps': 'peaceCorpsPost',
 };
 export const contentIdToSlug: ContentIdToSlugType = {
     'blogPost' : 'blog-posts',
@@ -30,7 +32,8 @@ export const contentIdToSlug: ContentIdToSlugType = {
 export const contentSlugToTitle = {
     'blog-posts': 'Blog posts',
     'projects': 'Projects',
-    'peace-corps': 'Sand in the Couscous'
+    'peace-corps': 'Sand in the Couscous',
+    'coffee': '/coffee'
 };
 export const contentSlugToSingular = {
     'blog-posts': 'Blog post',

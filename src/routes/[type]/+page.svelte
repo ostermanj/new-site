@@ -17,10 +17,13 @@
         onload="this.rel = 'stylesheet'" />`}
     {/if}
 </svelte:head>
+{#if data.isSlashPage}
+<SlashPage { data }></SlashPage>
+{:else}
 {#if isPeaceCorps}
 <header>
     <img class="hero" src="{data.pageFields?.hero?.fields.file?.url as string}" alt="{data.pageFields?.hero?.fields.description as string}">
-    <h1>{data.title}</h1>
+    <h1 class="pc-h1">{data.title}</h1>
 </header>
 <div class="u-column flow">
     <div class="secondary-title">{data.pageFields?.secondaryTitle}</div>
@@ -32,12 +35,13 @@
 <h1 class="u-visually-hidden">{data.title}</h1>
 {/if}
 <ContentGrid items={data.items}></ContentGrid>
+{/if}
 <style lang="scss">
     
     header {
         display: grid;
     }
-    h1 {
+    .pc-h1 {
         mix-blend-mode: difference;
         text-align: center;
         color: #2196f3;
@@ -88,12 +92,15 @@
 <script module lang="ts">
     declare const mapboxgl: {[key: string]: any} | undefined; 
     import { contentSlugToTitle } from "$lib/mapping";
+    import { isTypeSlashItem } from "$lib/types/contentful/index.js";
 </script>
 <script lang="ts">
     
     import { page } from "$app/state";
     import RichText from '$lib/components/RichText/index.svelte';
     import ContentGrid from "$lib/components/ContentGrid.svelte";
+	import type { TypeSlashItemFields } from "$lib/types/contentful/index.js";
+	import SlashPage from "./SlashPage.svelte";
 
     let { data } = $props();
     let isPeaceCorps = $derived(page.url.pathname === '/peace-corps');

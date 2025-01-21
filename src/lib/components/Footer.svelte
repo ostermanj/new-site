@@ -1,6 +1,9 @@
 <footer class={{isPoem}}>
     <div class={[{'u-column': !isPoem} ,'flow']}>
         {#if !isPoem}
+        <div class="tc-1 slash-pages">
+            <a href="/coffee">/coffee</a>
+        </div>
         <ExternalLinks isFooter={true}></ExternalLinks>
         {/if}
         <div class="tc-2 copyright">© John Osterman 2025. All Rights Reserved.</div>
@@ -40,6 +43,15 @@
     }
     footer.isPoem .copyright {
         text-shadow: 0 0 3px #000;
+    }
+    .slash-pages {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+    }
+    .slash-pages a {
+        color: var(--c-background-1);
+        text-decoration-color: currentcolor;
     }
 </style>
 <script lang="ts">

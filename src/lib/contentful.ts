@@ -1,5 +1,6 @@
 import * as contentful from 'contentful';
 import { C_SPACE, C_TOKEN } from "$env/static/private";
+import type { TypeSlashItemFields } from './types/contentful';
 const client = contentful.createClient({
     space: C_SPACE,
     //environment: 'master',
@@ -36,6 +37,17 @@ export const getPaginatedCollection = async (content_type = "blogPost", skip = 0
         content_type,
         skip,
         limit,
+        order: ['-fields.datePublished']
+    });
+    return entries;
+}
+
+export const getSlashItems = async (type: TypeSlashItemFields['type'], content_type = "slashItem", skip = 0, limit = 100) => {
+    const entries = await client.getEntries({
+        content_type,
+        skip,
+        limit,
+        "fields.type": type,
         order: ['-fields.datePublished']
     });
     return entries;
