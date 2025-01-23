@@ -22,7 +22,7 @@ type ContentIdToSlugType = {
 export const contentSlugToId = {
     'blog-posts': 'blogPost',
     'projects': 'project',
-    'peace-corps': 'peaceCorpsPost',
+    'peace-corps': 'peaceCorpsPost'
 };
 export const contentIdToSlug: ContentIdToSlugType = {
     'blogPost' : 'blog-posts',
@@ -33,7 +33,6 @@ export const contentSlugToTitle = {
     'blog-posts': 'Blog posts',
     'projects': 'Projects',
     'peace-corps': 'Sand in the Couscous',
-    'coffee': '/coffee'
 };
 export const contentSlugToSingular = {
     'blog-posts': 'Blog post',

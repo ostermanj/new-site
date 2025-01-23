@@ -15,3 +15,8 @@
     const props: Props = $props();
     const { fields } = props;
 </script>
+<style>
+    summary > :global(p) {
+        display: inline-block;
+    }
+</style>

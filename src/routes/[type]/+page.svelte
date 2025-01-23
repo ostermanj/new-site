@@ -17,22 +17,24 @@
         onload="this.rel = 'stylesheet'" />`}
     {/if}
 </svelte:head>
-{#if data.isSlashPage}
+{#if data.pageFields.isSlashPage}
 <SlashPage { data }></SlashPage>
 {:else}
-{#if isPeaceCorps}
-<header>
-    <img class="hero" src="{data.pageFields?.hero?.fields.file?.url as string}" alt="{data.pageFields?.hero?.fields.description as string}">
-    <h1 class="pc-h1">{data.title}</h1>
+<header class={["flow", page.params.type]}>
+    {#if data.pageFields?.hero}
+        <img class="hero" src="{data.pageFields?.hero?.fields.file?.url as string}" alt="{data.pageFields?.hero?.fields.description as string}">
+    {/if}
+    <h1 class={[{'u-visually-hidden': !data.pageFields?.showTitle}]}>{data.pageFields?.title}</h1>
 </header>
+{#if data.pageFields?.subtitle || data.pageFields?.bodyText }
 <div class="u-column flow">
-    <div class="secondary-title">{data.pageFields?.secondaryTitle}</div>
+    {#if data.pageFields?.subtitle}
+        <div class={["subtitle", page.params.type]}>{data.pageFields?.subtitle}</div>
+    {/if}
     {#if data.pageFields?.bodyText}
         <RichText doc={data.pageFields.bodyText}></RichText>
     {/if}
 </div>
-{:else}
-<h1 class="u-visually-hidden">{data.title}</h1>
 {/if}
 <ContentGrid items={data.items}></ContentGrid>
 {/if}
@@ -41,41 +43,51 @@
     header {
         display: grid;
     }
-    .pc-h1 {
-        mix-blend-mode: difference;
+    h1 {
         text-align: center;
-        color: #2196f3;
-        grid-row: 1;
-        grid-column: 1;
-        align-self: end;
-        font-family: cursive;
-        filter: url('#noise-liter');
-        @media screen and (min-width: 515px){
-            filter: url('#noise-lite');
-        }
-        @media screen and (min-width: 60rem){
-            font-size: var(--fz-larger-3);
+        .peace-corps & {
+            mix-blend-mode: difference;
+            color: #2196f3;
+            grid-row: 1;
+            grid-column: 1;
+            align-self: end;
+            font-family: cursive;
+            filter: url('#noise-liter');
+            @media screen and (min-width: 515px){
+                filter: url('#noise-lite');
+            }
+            @media screen and (min-width: 60rem){
+                font-size: var(--fz-larger-3);
+            }
         }
     }
 
-    .secondary-title {
+    .subtitle {
         font-family: PassionOne;
         text-align: center;
-        margin-block-start: -40px;
         letter-spacing: 0.5px;
+        
+        &.peace-corps {
+            margin-block-start: -40px;
+        }
     }
     .hero {
         grid-row: 1;
         grid-column: 1;
         margin-block-start: -3px;
         width: 100%;
-        padding: 0.5rem;
+        padding-block-start: 0.5rem;
         height: auto;
         min-height: 270px;
         object-fit: cover;
-        filter: url('#noise-liter');
-        @media screen and (min-width: 515px){
-                filter: url('#noise-lite');
+        
+        .peace-corps & {
+            padding: 0.5rem;
+            filter: url('#noise-liter');
+            @media screen and (min-width: 515px){
+                    filter: url('#noise-lite');
+            }
+
         }
     }
     :global(#map-cont) {

@@ -3,6 +3,11 @@ import type { LocalizedEntry, LocalizedFields } from "./Localized";
 import type { WithContentTypeLink } from "./WithContentTypeLink";
 
 export interface TypePageFields {
+    internalName: EntryFields.Symbol;
+    isSlashPage: EntryFields.Boolean;
+    title: EntryFields.Symbol;
+    showTitle: EntryFields.Boolean;
+    subtitle?: EntryFields.Symbol;
     seriesTitle: EntryFields.Symbol;
     secondaryTitle?: EntryFields.Symbol;
     body: EntryFields.Text;

@@ -1,9 +1,12 @@
 <article class="slash-page flow">
-    <h1 class="slash-h1">{data.title}</h1>
-    <div class="u-column">
+    <h1 class="slash-h1">{data.pageFields.title}</h1>
+    <div class="u-column flow">
+        {#if data.pageFields.bodyText}
+            <RichText doc={data.pageFields.bodyText}></RichText>
+        {/if}
         {#each data.items as item}
         {#if item.fields.bodyText}
-        <article class="flow">
+        <article class="flow tc-1">
             <div class="date-published"><time datetime={item.fields.datePublished}>{new Date(  item.fields.datePublished  ).toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</time></div>
             <RichText doc={item.fields.bodyText}></RichText>
         </article>

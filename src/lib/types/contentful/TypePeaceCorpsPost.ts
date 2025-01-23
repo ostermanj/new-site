@@ -1,10 +1,8 @@
 import type { Asset, Entry, EntryFields } from "contentful";
 import type { LocalizedEntry, LocalizedFields } from "./Localized";
-import type { TypeAuthorFields } from "./TypeAuthor";
 import type { WithContentTypeLink } from "./WithContentTypeLink";
 
 export interface TypePeaceCorpsPostFields {
-    authors: Entry<TypeAuthorFields>[];
     title: EntryFields.Symbol;
     subtitle?: EntryFields.Symbol;
     datePublished: EntryFields.Date;

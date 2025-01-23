@@ -1,6 +1,5 @@
 import type { Asset, Entry, EntryFields } from "contentful";
 import type { LocalizedEntry, LocalizedFields } from "./Localized";
-import type { TypeAuthorFields } from "./TypeAuthor";
 import type { TypeCodeBlockFields } from "./TypeCodeBlock";
 import type { TypeFigureFields } from "./TypeFigure";
 import type { TypeRichTextFields } from "./TypeRichText";
@@ -10,7 +9,6 @@ import type { TypeTwoUpFields } from "./TypeTwoUp";
 import type { WithContentTypeLink } from "./WithContentTypeLink";
 
 export interface TypeBlogPostFields {
-    authors: Entry<TypeAuthorFields>[];
     title: EntryFields.Symbol;
     subtitle?: EntryFields.Symbol;
     datePublished: EntryFields.Date;
