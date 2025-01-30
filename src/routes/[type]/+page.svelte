@@ -90,15 +90,15 @@
 
         }
     }
-    :global(#map-cont) {
-        position: relative;
-        width: 100%;
-        padding-bottom: 56.25%;
-    }
-    :global(#map-cont--inner) {
-        position: absolute;
-        inset: 0;
-    }
+    // :global(#map-cont) {
+    //     position: relative;
+    //     width: 100%;
+    //     padding-bottom: 56.25%;
+    // }
+    // :global(#map-cont--inner) {
+    //     position: absolute;
+    //     inset: 0;
+    // }
     
 </style>
 <script module lang="ts">
@@ -132,11 +132,12 @@
     }
     let timeout: number;
     const initMap = (container: HTMLElement) => {
+        return;
         clearInterval(timeout);
         if (!mapboxgl) {
             return
         }
-        mapboxgl.accessToken = 'pk.eyJ1Ijoib3N0ZXJtYW5qIiwiYSI6ImNsOWl5NmF5ZTA4ODgzd28wczZ3bm9oYm0ifQ.qLNG2qiKlw8RkjFlHwsHhQ';
+        mapboxgl.accessToken = '';
             _map = new mapboxgl.Map({
                 container: 'map-cont--inner', // container ID
                 style: 'mapbox://styles/mapbox/satellite-streets-v11?optimize=true', // style URL
@@ -162,6 +163,7 @@
         })
     }
     $effect(() => {
+        return;
         if (!isPeaceCorps) {
             return;
         }
