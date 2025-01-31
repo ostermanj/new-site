@@ -6,8 +6,9 @@
         {/if}
         {#each data.items as item}
         {#if item.fields.bodyText}
-        <article class="flow tc-1">
+        <article id={item.fields.slug} class="flow tc-1 slash-item">
             <div class="date-published"><time datetime={item.fields.datePublished}>{new Date(  item.fields.datePublished  ).toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</time></div>
+            <h2>{item.fields.title}</h2>
             <RichText doc={item.fields.bodyText}></RichText>
         </article>
         {/if}
@@ -25,7 +26,7 @@
         max-width: max(75vw, var(--l-max-text-column));
         margin-inline: auto;
     }
-    .slash-page :global(h2) {
+    h2 {
         margin-block-start: 0;
     }
     h1 {
@@ -35,5 +36,9 @@
     }
     .date-published {
         color: #767676;
+    }
+    .slash-item:target {
+        outline: 2px solid var(--c-primary-1);
+        outline-offset: 10px;
     }
 </style>

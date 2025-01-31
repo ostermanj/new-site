@@ -1,35 +1,66 @@
 import type { RequestHandler } from './$types';
 import { getHomepage, getPaginatedCollection } from '$lib/contentful';
-import {  type TypeBlogPost, type TypeBlogPostFields, type TypeHomepageFields, type TypePeaceCorpsPost, type TypePeaceCorpsPostFields, type TypeProject, type TypeProjectFields } from '$lib/types/contentful';
+import {  isTypeBlogPost, isTypePeaceCorpsPost, isTypeProject, isTypeSlashItem, type TypeBlogPost, type TypeBlogPostFields, type TypeHomepageFields, type TypePeaceCorpsPost, type TypePeaceCorpsPostFields, type TypeProject, type TypeProjectFields, type TypeSlashItemFields } from '$lib/types/contentful';
 import { contentIdToSlug } from '$lib/mapping';
+import type { BaseEntry } from 'contentful';
+import { render } from 'svelte/server';
+import RichText from '$lib/components/RichText/index.svelte';
 
-const includeContentTypes = ['project', 'blogPost', 'peaceCorpsPost'];
+const includeContentTypes = ['project', 'blogPost', 'peaceCorpsPost', 'slashItem'];
 
-const escape = (xml: string) => xml
+const escape = (xml: string) => {
+    console.log(xml);
+    return xml
     .replaceAll('"','&quot')
     .replaceAll("'", '$apos;')
     .replaceAll("<", '$lt;')
     .replaceAll(">", '$gt;')
     .replaceAll("&", '$amp;');
-
-const buildLink = (fields: TypeProjectFields | TypeBlogPostFields | TypePeaceCorpsPostFields, contentId: string ) => {
-    return `https://osterman.blog/${contentIdToSlug[contentId as keyof typeof contentIdToSlug]}/${fields.slug}`;
 }
 
-const postToXML = (fields: TypeProjectFields | TypeBlogPostFields | TypePeaceCorpsPostFields, contentId: string) => {
-    return `
-    <item>
-        <title> ${escape(fields.title)} </title>
-        <description><![CDATA[ ${fields.snippet} ]]></description>
-        <pubDate>${fields.datePublished}</pubDate>
-        <updated>${fields.dateUpdated}</updated>
-        <link>${buildLink(fields, contentId)}</link>
-        <guid isPermaLink="true">${buildLink(fields, contentId)}</guid>
-        
-    </item>`;
+const buildPageLink = (entry: BaseEntry, fields: TypeProjectFields | TypeBlogPostFields | TypePeaceCorpsPostFields | TypeSlashItemFields) => {
+    if (isTypeSlashItem(entry)){
+        const _fields = fields as TypeSlashItemFields
+        return `https://osterman.blog/${_fields.type}#${_fields.slug}`;
+    }
+    return `https://osterman.blog/${contentIdToSlug[entry.sys.contentType.sys.id as keyof typeof contentIdToSlug]}/${fields.slug}`;
 }
-const entryToXML = (entry: TypeProject | TypeBlogPost | TypePeaceCorpsPost) => {
-    return postToXML((entry as TypeProject | TypeBlogPost | TypePeaceCorpsPost).fields as TypeProjectFields | TypeBlogPostFields | TypePeaceCorpsPostFields, (entry as TypeBlogPost | TypePeaceCorpsPost ).sys.contentType.sys.id)
+
+const postToXML = (entry: BaseEntry ) => {
+    let fields;
+    if (isTypeProject(entry)){
+        fields = entry.fields as TypeProjectFields;
+    } else if (isTypeBlogPost(entry)){
+        fields = entry.fields as TypeBlogPostFields;
+    } else if (isTypePeaceCorpsPost(entry)){
+        fields = entry.fields as TypePeaceCorpsPostFields;
+    } else if (isTypeSlashItem(entry)){
+        fields = entry.fields as TypeSlashItemFields;
+        return `
+            <item>
+                <title> ${escape(fields.title ?? '')} (${fields.type})</title>
+                <description><![CDATA[ ${render(RichText, {props: {doc: fields.bodyText}}).body.replace(/<.*?>/g,'')} ]]></description>
+                <pubDate>${fields.datePublished}</pubDate>
+                <link>${buildPageLink(entry, fields)}</link>
+                <guid isPermaLink="true">${buildPageLink(entry, fields)}</guid>
+                
+            </item>`;
+    }
+    if (fields){
+        return `
+        <item>
+            <title> ${escape(fields.title)} </title>
+            <description><![CDATA[ ${fields.snippet} ]]></description>
+            <pubDate>${fields.datePublished}</pubDate>
+            ${fields.dateUpdated ? `<updated>${fields.dateUpdated}</updated>` : ''}
+            <link>${buildPageLink(entry as TypeProject | TypeBlogPost | TypePeaceCorpsPost, fields)}</link>
+            <guid isPermaLink="true">${buildPageLink(entry as TypeProject | TypeBlogPost | TypePeaceCorpsPost, fields)}</guid>
+            
+        </item>`;
+    }
+}
+const entryToXML = (entry: TypeProject | TypeBlogPostFields | TypePeaceCorpsPostFields) => {
+    return postToXML(entry as TypeProject | TypeBlogPost | TypePeaceCorpsPost)
 }
 
 export const GET: RequestHandler = async () => {

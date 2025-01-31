@@ -1,10 +1,11 @@
 import * as contentful from 'contentful';
-import { C_SPACE, C_TOKEN } from "$env/static/private";
+import { C_SPACE, C_TOKEN, C_TOKEN_PREVIEW } from "$env/static/private";
 import type { TypeSlashItemFields } from './types/contentful';
 const client = contentful.createClient({
     space: C_SPACE,
     //environment: 'master',
-    accessToken: C_TOKEN
+    accessToken: import.meta.env.DEV ? C_TOKEN_PREVIEW : C_TOKEN,
+    host: import.meta.env.DEV ? 'preview.contentful.com' : 'cdn.contentful.com',    
 });
 
 export const getHomepage = async () => {

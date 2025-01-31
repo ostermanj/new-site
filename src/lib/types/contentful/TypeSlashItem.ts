@@ -4,6 +4,8 @@ import type { WithContentTypeLink } from "./WithContentTypeLink";
 
 export interface TypeSlashItemFields {
     internalName: EntryFields.Symbol;
+    slug?: EntryFields.Symbol;
+    title: EntryFields.Symbol;
     bodyText: EntryFields.RichText;
     type: "coffee";
     datePublished: EntryFields.Date;
