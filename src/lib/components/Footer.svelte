@@ -3,6 +3,7 @@
         {#if !isPoem}
         <div class="tc-1 slash-pages">
             <a href="/coffee">/coffee</a>
+            <a href="/til">/til</a>
         </div>
         <ExternalLinks isFooter={true}></ExternalLinks>
         {/if}
