@@ -16,8 +16,8 @@
         content: EntryHyperlink
     }
     const props: Props = $props();
-    const { content } = props;
-    const target = content.data.target as unknown as Entry;
-    const targetContentType = target.sys.contentType.sys.id as keyof typeof contentIdToSlug;
-    const targetFields = target.fields as unknown as ContentIdToFieldsType[typeof targetContentType]
+    const content = $derived(props.content);
+    const target = $derived(content.data.target as unknown as Entry);
+    const targetContentType = $derived(target.sys.contentType.sys.id as keyof typeof contentIdToSlug);
+    const targetFields = $derived(target.fields as unknown as ContentIdToFieldsType[typeof targetContentType]);
 </script>

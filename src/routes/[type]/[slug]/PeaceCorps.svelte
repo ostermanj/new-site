@@ -24,8 +24,8 @@
     
     import RichText from '$lib/components/RichText/index.svelte'
     import Poem from './Poem.svelte'
-    let props: Props = $props();
-    let { fields } = props;
+    const props: Props = $props();
+    const { fields } = props;
 </script>
 <style lang="scss">
     h1 {

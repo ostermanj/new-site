@@ -18,7 +18,7 @@
     {/if}
 </svelte:head>
 {#if data.pageFields.isSlashPage}
-<SlashPage { data }></SlashPage>
+<SlashPage items={data.items} pageFields={data.pageFields}></SlashPage>
 {:else}
 <header class={["flow", page.params.type]}>
     {#if data.pageFields?.hero}
@@ -105,17 +105,17 @@
     declare const mapboxgl: {[key: string]: any} | undefined; 
     import { contentSlugToTitle } from "$lib/mapping";
     import { isTypeSlashItem } from "$lib/types/contentful/index.js";
+    
 </script>
 <script lang="ts">
     
     import { page } from "$app/state";
     import RichText from '$lib/components/RichText/index.svelte';
     import ContentGrid from "$lib/components/ContentGrid.svelte";
-	import type { TypeSlashItemFields } from "$lib/types/contentful/index.js";
 	import SlashPage from "./SlashPage.svelte";
-
-    let { data } = $props();
-    let isPeaceCorps = $derived(page.url.pathname === '/peace-corps');
+    
+    const { data } = $props();
+    const isPeaceCorps = $derived(page.url.pathname === '/peace-corps');
     let _map: {[key: string]: any} | undefined; 
     const callback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
         entries.forEach(entry => {

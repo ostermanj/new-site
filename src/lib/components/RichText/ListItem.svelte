@@ -13,5 +13,5 @@
     }
 
     const props: Props = $props();
-    const { listItem } = props;
+    const listItem = $derived(props.listItem);
 </script>

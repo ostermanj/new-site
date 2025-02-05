@@ -7,5 +7,5 @@
         block: Block
     }
     const props: Props = $props();
-    const { block } = props;
+    const block = $derived(props.block);
 </script>

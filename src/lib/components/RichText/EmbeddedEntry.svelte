@@ -36,9 +36,9 @@
     };
 
     const props: Props = $props();
-    const { block } = props;
-    const entry = block.data.target as Entry;
-    const fields = entry.fields as unknown as ( TypeFigureFields | TypeSummaryDetailsFields | TypeTwoUpFields | TypeCodeBlockFields | TypeNoticeFields | TypeJournalQuoteFields | TypePlaceholderDivFields);
+    const block = $derived(props.block);
+    const entry = $derived(block.data.target as Entry);
+    const fields = $derived(entry.fields as unknown as ( TypeFigureFields | TypeSummaryDetailsFields | TypeTwoUpFields | TypeCodeBlockFields | TypeNoticeFields | TypeJournalQuoteFields | TypePlaceholderDivFields));
     
 </script>
 <style>

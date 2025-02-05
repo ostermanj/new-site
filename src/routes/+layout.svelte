@@ -2,7 +2,7 @@
     import '$lib/global.scss';
     import Footer from '$lib/components/Footer.svelte';
     import { page } from '$app/state';
-    let { children } = $props();
+    const { children } = $props();
 </script>
 <svelte:head>
     {#if import.meta.env.PROD }

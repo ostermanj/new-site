@@ -9,7 +9,6 @@ import RichText from '$lib/components/RichText/index.svelte';
 const includeContentTypes = ['project', 'blogPost', 'peaceCorpsPost', 'slashItem'];
 
 const escape = (xml: string) => {
-    console.log(xml);
     return xml
     .replaceAll('"','&quot')
     .replaceAll("'", '$apos;')

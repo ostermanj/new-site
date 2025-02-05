@@ -11,6 +11,6 @@
         block: Block
     }
     const props: Props = $props();
-    const { block } = props;
-    const level = block.nodeType.split('-')[1]
+    const block = $derived(props.block);
+    const level = $derived(block.nodeType.split('-')[1])
 </script>

@@ -1,10 +1,10 @@
 <article class="slash-page flow">
-    <h1 class="slash-h1">{data.pageFields.title}</h1>
+    <h1 class="slash-h1">{pageFields.title}</h1>
     <div class="u-column flow">
-        {#if data.pageFields.bodyText}
-            <RichText doc={data.pageFields.bodyText}></RichText>
+        {#if pageBodyText}
+            <RichText doc={pageBodyText}></RichText>
         {/if}
-        {#each data.items as item}
+        {#each items as item}
         {#if item.fields.bodyText}
         <article id={item.fields.slug} class="flow tc-1 slash-item">
             <div class="date-published"><time datetime={item.fields.datePublished}>{new Date(  item.fields.datePublished  ).toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</time></div>
@@ -18,7 +18,17 @@
 <script lang="ts">
 	import type { PageData } from "./$types";
     import RichText from '$lib/components/RichText/index.svelte'
-    const { data }: { data: PageData} = $props()
+	import type { TypePageFields, TypeSlashItem, TypeSlashItemFields } from "$lib/types/contentful";
+	import type { Entry } from "contentful";
+    const props = $props();
+    const items = $derived(props.items);
+    const pageFields = $derived(props.pageFields);
+    const pageBodyText = $derived(pageFields.bodyText);
+    // const { items, pageFields } = $props();
+    // const pageBodyText = $state(pageFields.bodyText);
+    // $effect(() => {
+    //     pageBodyText = pageFields.bodyText;
+    // })
 </script>
 <style>
     .slash-page {

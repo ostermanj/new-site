@@ -14,13 +14,13 @@
         content: Text
     }
     const props: Props = $props();
-    const { content } = props;
-    const marks = content.marks;
-    const nextMarks = content.marks.slice(1);
-    const nextContent: Text = {
+    const content = $derived(props.content);
+    const marks = $derived(content.marks);
+    const nextMarks = $derived(content.marks.slice(1));
+    const nextContent: Text = $derived({
         nodeType: 'text',
         value: content.value,
         marks: nextMarks,
         data: {}
-    }
+    })
 </script>

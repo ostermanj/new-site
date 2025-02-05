@@ -15,10 +15,12 @@
 </template>
 <script lang="ts">
 	import { type TypeBlogPostFields } from '$lib/types/contentful';
-    
     import RichText from '$lib/components/RichText/index.svelte'
-    // let props: Props = $props();
-    const { fields }: {fields: TypeBlogPostFields} = $props();
+    interface Props {
+        fields: TypeBlogPostFields;
+    }
+    const props: Props = $props() 
+    const fields = $derived(props.fields);
 </script>
 <style>
     h1 {

@@ -1,4 +1,4 @@
-{#each doc.content as block }
+{#each props.doc.content as block }
     {@const Component = blockTypeToComponent[block.nodeType]}
     <Component {block}></Component>
 {/each}
@@ -59,5 +59,4 @@
         doc: Document
     }
     const props: Props = $props()
-    const { doc } = props;
 </script>

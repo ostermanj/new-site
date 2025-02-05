@@ -1,4 +1,4 @@
-import type { Entry, EntryFields } from "contentful";
+import type { Asset, Entry, EntryFields } from "contentful";
 import type { LocalizedEntry, LocalizedFields } from "./Localized";
 import type { WithContentTypeLink } from "./WithContentTypeLink";
 
@@ -7,8 +7,10 @@ export interface TypeSlashItemFields {
     slug?: EntryFields.Symbol;
     title: EntryFields.Symbol;
     bodyText: EntryFields.RichText;
-    type: "coffee";
+    type: "coffee" | "til";
     datePublished: EntryFields.Date;
+    blueskyPost?: EntryFields.Text;
+    blueskyImages?: Asset[];
 }
 
 export type TypeSlashItem = Entry<TypeSlashItemFields>;

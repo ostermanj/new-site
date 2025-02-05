@@ -10,5 +10,5 @@
         content: Hyperlink
     }
     const props: Props = $props();
-    const { content } = props;
+    const content = $derived(props.content);
 </script>

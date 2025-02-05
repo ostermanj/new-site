@@ -1,4 +1,4 @@
 <strong>{props.text}</strong>
 <script lang="ts">
-    let props = $props()
+    const props = $props()
 </script>

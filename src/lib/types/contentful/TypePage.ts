@@ -8,7 +8,6 @@ export interface TypePageFields {
     title: EntryFields.Symbol;
     showTitle: EntryFields.Boolean;
     subtitle?: EntryFields.Symbol;
-    seriesTitle: EntryFields.Symbol;
     secondaryTitle?: EntryFields.Symbol;
     body: EntryFields.Text;
     bodyText?: EntryFields.RichText;
