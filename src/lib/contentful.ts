@@ -21,6 +21,7 @@ export const getHomepage = async () => {
 }
 
 export const getEntryBySlugAndType = async ({slug, type}: {slug: string, type: string}) => {
+    console.log({slug, type});
     try {
         const entries = await client.getEntries({
             content_type: type,
@@ -53,3 +54,5 @@ export const getSlashItems = async (type: TypeSlashItemFields['type'], content_t
     });
     return entries;
 }
+
+export const getAssetPromise = (id: string) => client.getAsset(id);
