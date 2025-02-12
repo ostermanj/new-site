@@ -112,6 +112,7 @@
        }
     }
     .slash-item {
+        writing-mode: vertical-lr;
         writing-mode: sideways-lr;
 
         .isFooter & {
