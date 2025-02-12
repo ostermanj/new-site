@@ -42,6 +42,9 @@
     
     header {
         display: grid;
+        &.peace-corps {
+            // margin-block-start: 1lh;
+        }
     }
     h1 {
         text-align: center;
@@ -74,18 +77,21 @@
     .hero {
         grid-row: 1;
         grid-column: 1;
+        margin-inline-start: -3px;
         margin-block-start: -3px;
         width: 100%;
-        padding-block-start: 0.5rem;
         height: auto;
         min-height: 270px;
         object-fit: cover;
         
         .peace-corps & {
-            padding: 0.5rem;
+            // padding: 0.5rem;
             filter: url('#noise-liter');
             @media screen and (min-width: 515px){
-                    filter: url('#noise-lite');
+                filter: url('#noise-lite');
+            }
+            @media screen and (min-width: 51rem){
+                padding-inline: 1rem;
             }
 
         }

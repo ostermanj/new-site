@@ -2,23 +2,27 @@
     import MainNavigation from '$lib/components/MainNavigation.svelte';
     import { onNavigate } from '$app/navigation';
     import '$lib/global.scss';
-    
     const { children } = $props();
     onNavigate((navigation) => {
-	if (!document.startViewTransition) return;
+		if (!document.startViewTransition) return;
 
-	return new Promise((resolve) => {
-		document.startViewTransition(async () => {
-			resolve();
-			await navigation.complete;
+		return new Promise((resolve) => {
+			document.startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
 		});
 	});
-});
+
+	const moreHandler = () => {
+
+	}
 </script>
 <header>
     <MainNavigation></MainNavigation>
 </header>
-<section class="flow">{@render children()}</section>
+<section class="flow">
+	{@render children()}</section>
 <style lang="scss">
 	section {
 		@media screen and (min-width: 51rem) {

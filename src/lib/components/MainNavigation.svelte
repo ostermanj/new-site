@@ -24,6 +24,7 @@
         --banner-height: 59px;
         height: var(--banner-height);
         position: relative;
+        z-index: 1;
 
         &.isHome {
             display: contents;
@@ -39,6 +40,8 @@
        height: var(--banner-height);
        z-index: 2;
        background-color: var(--c-background-1);
+
+       
     }
     a {
         color: var(--c-primary-2);
@@ -101,4 +104,5 @@
         border-left: 7px solid transparent;
         border-right: 7px solid transparent;
     }
+    
 </style>

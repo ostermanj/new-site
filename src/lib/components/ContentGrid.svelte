@@ -27,6 +27,7 @@
 </script>
 <style lang="scss">
     section {
+        margin-block-start: 2lh;
         padding-inline: 1lh;
         @media screen and (min-width: 51rem) {
             width: calc(100vw - 56px * 2);
