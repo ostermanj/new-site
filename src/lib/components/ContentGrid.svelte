@@ -28,8 +28,9 @@
 <style lang="scss">
     section {
         margin-block-start: 2lh;
-        padding-inline: 1lh;
+        padding-inline: 1rem;
         @media screen and (min-width: 51rem) {
+            margin-block-start: 1lh;
             width: calc(100vw - 56px * 2);
             margin-inline: auto;
         }
@@ -70,7 +71,7 @@
     }
     .grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(max(30%, 270px), auto));
         gap: 1rem;
     }
     .date-published {

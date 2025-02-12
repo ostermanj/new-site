@@ -20,6 +20,7 @@
 <style lang="scss">
     @use '../mixins';
     .main-navigation {
+        font-size: clamp(15px, 4.375vw, 23.2px);
         // view-transition-name: navigation;
         --banner-height: 59px;
         height: var(--banner-height);

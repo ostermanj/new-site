@@ -11,7 +11,8 @@
 	--l-max-column-width: 60rem;
     --l-max-text-column: 60ch;
 
-    --fz-base: clamp(1.1475rem, 4.25vw, 1.45rem);
+    /* --fz-base: clamp(1.1475rem, 4.25vw, 1.45rem); */
+    --fz-base: 1.45rem;
     --type-interval: 1.618;
 	--fz-larger-6: calc(1em * pow(var(--type-interval), 6)); 
 	--fz-larger-5: calc(1em * pow(var(--type-interval), 5)); 
