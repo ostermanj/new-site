@@ -22,6 +22,8 @@
         </li>
         <!-- TODO: PUBLIC PATH -->
         <li><a data-sveltekit-reload class="bw-0" title="RSS" href="/rss"><span class="u-visually-hidden">RSS</span> <Sprite width={18} height={18} id="rss" offset={-2} /></a></li>
+        <li class="slash-item"><a href="/coffee">/coffee</a></li>
+        <li class="slash-item"><a href="/til">/til</a></li>
     </menu>
 </div>
 <script lang="ts">
@@ -108,5 +110,12 @@
         @media screen and (min-width: 51rem) {
         display: none;
        }
+    }
+    .slash-item {
+        writing-mode: sideways-lr;
+
+        .isFooter & {
+            display: none;
+        }
     }
 </style>
