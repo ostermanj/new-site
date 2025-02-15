@@ -12,7 +12,7 @@ export const load: PageServerLoad = async ({params}) => {
         for (const contentId of contentIdsToTry) {
             const entry = await getEntryBySlugAndType({ type: contentId, slug: params.slug});
             if ( entry?.total ){
-                redirect(302, `/${contentIdToSlug[contentId as keyof typeof contentIdToSlug]}/${params.slug}`);
+                redirect(301, `/${contentIdToSlug[contentId as keyof typeof contentIdToSlug]}/${params.slug}`);
             }
         }
         errorPage(404, 'Not found');
@@ -24,7 +24,7 @@ export const load: PageServerLoad = async ({params}) => {
         }
         // TODO: HANDLE FUTURE PAGINATION
         const fields = slashItems.items[0].fields as unknown as TypeSlashItemFields;
-        redirect(302, `/${fields.type}/#${fields.slug}`);
+        redirect(301, `/${fields.type}/#${fields.slug}`);
     }
     const contentType = contentSlugToId[params.type as keyof typeof contentSlugToId] as keyof ContentIdToFieldsType;
     if (!contentType){

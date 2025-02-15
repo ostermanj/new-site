@@ -14,7 +14,7 @@ export const load: PageServerLoad = async ({params}) => {
         }
         const entry = await getEntryBySlugAndType({ type: contentId, slug: params.slug});
         if ( entry?.total ){
-            redirect(302, `/${contentIdToSlug[contentId as keyof typeof contentIdToSlug]}/${params.slug}`);
+            redirect(301, `/${contentIdToSlug[contentId as keyof typeof contentIdToSlug]}/${params.slug}`);
         }
     }
     error(404, 'Not found');

@@ -9,7 +9,7 @@ export const load: PageServerLoad = async ({params}) => {
 	const contentId = params.contentId;
 	const path = contentIdToSlug[contentId as keyof typeof contentIdToSlug];
 	if (path){
-		redirect(302, `/${path}`);
+		redirect(301, `/${path}`);
 	} else {
 		error(404, 'Not found');
 	}
