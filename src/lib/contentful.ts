@@ -34,6 +34,18 @@ export const getEntryBySlugAndType = async ({slug, type}: {slug: string, type: s
     }
 }
 
+export const getEntryBySlug = async (slug: string) => {
+    try {
+        const entries = await client.getEntries({
+            "fields.slug": slug,
+            include: 2,
+        });
+        return entries;
+    } catch (error){
+        console.error(error);
+    }
+}
+
 export const getPaginatedCollection = async (content_type = "blogPost", skip = 0, limit = 100) => {
     const entries = await client.getEntries({
         content_type,

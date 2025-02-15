@@ -1,11 +1,22 @@
 import { getEntryBySlugAndType } from '$lib/contentful';
-import { contentSlugToId, type ContentIdToFieldsType } from '$lib/mapping';
+import { contentSlugToId, contentIdToSlug, type ContentIdToFieldsType } from '$lib/mapping';
 import { error as errorPage, redirect } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import type { TypeSlashItemFields } from '$lib/types/contentful';
+import { redirects } from '$lib/redirects';
 
 export const load: PageServerLoad = async ({params}) => {
-    console.log({params});
+    if (redirects[params.slug as keyof typeof redirects]){
+        const contentIdsToTry = ['blogPost', 'project', 'peaceCorpsPost'];
+        params.slug = redirects[params.slug as keyof typeof redirects];
+        for (const contentId of contentIdsToTry) {
+            const entry = await getEntryBySlugAndType({ type: contentId, slug: params.slug});
+            if ( entry?.total ){
+                redirect(302, `/${contentIdToSlug[contentId as keyof typeof contentIdToSlug]}/${params.slug}`);
+            }
+        }
+        errorPage(404, 'Not found');
+    }
     if (params.type === 'slashItem') {
         const slashItems = await getEntryBySlugAndType({type: 'slashItem', slug: params.slug});
         if (!slashItems || !slashItems.items.length) {
