@@ -6,7 +6,7 @@
     <meta name="og:image" content={data.pageFields?.hero?.fields.file?.url as string ?? 'https://osterman.blog/johnosterman.png'} />
     <meta name="og:site_name" content="John Osterman" />
     <meta name="og:description" content={data.pageFields?.snippet} />
-    <link rel="canonical" href={`https://osterman.blog/${page.url.pathname}`}>
+    <link rel="canonical" href={`https://osterman.blog${page.url.pathname}`}>
     {#if isPeaceCorps}
     <script defer src='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js'></script>
     <!-- <script defer src='/init-map.js'></script> -->

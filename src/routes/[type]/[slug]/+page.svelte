@@ -6,7 +6,7 @@
     <meta name="og:image" content={fields.heroImage?.fields.file?.url as string ?? 'https://osterman.blog/johnosterman.png'} />
     <meta name="og:site_name" content="John Osterman" />
     <meta name="og:description" content={fields.snippet} />
-    <link rel="canonical" href={`https://osterman.blog/${page.url.pathname}`}>
+    <link rel="canonical" href={`https://osterman.blog${page.url.pathname}`}>
 </svelte:head>
 <article class="flow">
     {#if data.contentType === 'blogPost'}
