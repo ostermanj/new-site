@@ -19,6 +19,7 @@
 		"@sveltejs/adapter-netlify": "^4.4.0",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^4.0.0",
+		"ai.robots.txt": "github:ai-robots-txt/ai.robots.txt",
 		"cf-content-types-generator": "^2.15.5",
 		"contentful": "^11.4.0",
 		"env-cmd": "^10.1.0",

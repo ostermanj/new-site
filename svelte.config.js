@@ -15,6 +15,9 @@ const config = {
 		adapter: adapter({
 			edge: true
 		}),
+		alias: {
+			'$nm': '/node_modules'
+		}
 		
 	}
 };

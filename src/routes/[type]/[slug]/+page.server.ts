@@ -4,8 +4,10 @@ import { error as errorPage, redirect } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import type { TypeSlashItemFields } from '$lib/types/contentful';
 import { redirects } from '$lib/redirects';
+import { checkRobots } from '../../robots';
 
-export const load: PageServerLoad = async ({params}) => {
+export const load: PageServerLoad = async ({params, request}) => {
+    checkRobots(request);
     if (redirects[params.slug as keyof typeof redirects]){
         const contentIdsToTry = ['blogPost', 'project', 'peaceCorpsPost'];
         params.slug = redirects[params.slug as keyof typeof redirects];

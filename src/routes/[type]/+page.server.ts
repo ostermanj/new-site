@@ -3,6 +3,7 @@ import { getEntryBySlugAndType, getPaginatedCollection, getSlashItems } from '$l
 import type { TypePageFields, TypeSlashItemFields } from '$lib/types/contentful';
 import { contentSlugToId, type ContentIdToType, type ContentIdToFieldsType } from '$lib/mapping';
 import { error as errorPage } from '@sveltejs/kit';
+import { checkRobots } from '../robots';
 
 const returnSlashItems = async (slashType: TypeSlashItemFields['type']) => {
     const entries = await getSlashItems(slashType);
@@ -11,7 +12,8 @@ const returnSlashItems = async (slashType: TypeSlashItemFields['type']) => {
             sys: entry.sys
         }))
 }
-export const load: PageServerLoad = async ({params}) => {
+export const load: PageServerLoad = async ({params, request}) => {
+    checkRobots(request);
     const pageEntries = await getEntryBySlugAndType({type: 'page', slug: params.type});
     if (!pageEntries){
         errorPage(400, 'No entries found');

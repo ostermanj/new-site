@@ -927,6 +927,10 @@ agent-base@^7.1.2:
   resolved "https://registry.yarnpkg.com/agent-base/-/agent-base-7.1.3.tgz#29435eb821bc4194633a5b89e5bc4703bafc25a1"
   integrity sha512-jRR5wdylq8CkOe6hei19GGZnxM6rBGwFl3Bg0YItGDimvjGtAvdZk4Pu6Cl4u4Igsws4a1fd1Vq3ezrhn4KmFw==
 
+"ai.robots.txt@github:ai-robots-txt/ai.robots.txt":
+  version "0.0.0"
+  resolved "https://codeload.github.com/ai-robots-txt/ai.robots.txt/tar.gz/abfd6dfcd15267ed03b5fda4cd3eac2512604ed2"
+
 ajv@^6.12.4:
   version "6.12.6"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.12.6.tgz#baf5a62e802b07d977034586f8c3baf5adf26df4"
