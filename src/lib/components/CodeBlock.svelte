@@ -4,11 +4,13 @@
     import xml from 'highlight.js/lib/languages/xml';
     import css from 'highlight.js/lib/languages/css';
     import javascript from 'highlight.js/lib/languages/javascript';
+    import typescript from 'highlight.js/lib/languages/typescript';
 
     const languages = {
         xml,
         css,
         javascript,
+        typescript
     };
 </script>
 <script lang="ts">
