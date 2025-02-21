@@ -1,6 +1,6 @@
 <svelte:head>
     <meta name="description" content={fields.snippet} />
-    <meta name="og:title" content={contentSlugToTitle[page.params.type as keyof typeof contentSlugToTitle]} />
+    <meta name="og:title" content={fields.title} />
     <meta name="og:type" content="website" />
     <meta name="og:url" content={`https://osterman.blog/${page.url.pathname}`} />
     <meta name="og:image" content={fields.heroImage?.fields.file?.url as string ?? 'https://osterman.blog/johnosterman.png'} />
