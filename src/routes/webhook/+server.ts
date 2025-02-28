@@ -1,3 +1,4 @@
+import { Buffer } from 'buffer';
 import type { RequestHandler } from './$types';
 import { B_IDENTIFIER, B_AUTH, C_WEBHOOK_SIGNING_SECRET } from "$env/static/private";
 import { verifyRequest } from "@contentful/node-apps-toolkit";
