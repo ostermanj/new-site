@@ -3,9 +3,13 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
 	plugins: [sveltekit()],
-	resolve: {
-		alias: {
-		  'node:buffer': 'buffer'
+	server: {
+		proxy: {
+			'/.netlify/functions': {
+				target: 'http://localhost:8888',
+				changeOrigin: true,
+				secure: false
+			}
 		}
-	  }
+	}
 });
