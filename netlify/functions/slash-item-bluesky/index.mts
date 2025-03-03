@@ -14,7 +14,7 @@ export default async (request: Request, context: Context) => {
 	try {
 		const requestJson = await request.json();
 		const canonicalRequest = {
-			path: '/.netlify/functions/hello-world',
+			path: '/.netlify/functions/slash-item-bluesky',
 			headers: Object.fromEntries(request.headers.entries()),
 			method: request.method as 'POST',
 			body: JSON.stringify(requestJson)
