@@ -26,7 +26,9 @@ export default async (request: Request, context: Context) => {
 		if (!isVerified) {
 			return new Response('Not allowed', { status: 403 });
 		}
-		if (!requestJson.fields?.blueskyPost /*|| requestJson.sys.revision > 1 */) {
+		// TODO: AFTER THE SKEET POSTS, USE CTFL CMA TO MARK THE ENTRY WITH A BOOLEAN FIELD. COULD THEN UNCHECK IT
+		// MANUALLY IF NEEDED
+		if (!requestJson.fields?.blueskyPost || requestJson.sys.revision > 1) {
 			return new Response(JSON.stringify(requestJson), {
 				status: 200,
 				statusText: 'No content to handle'
