@@ -39,10 +39,10 @@
 		"vite": "^5.4.11"
 	},
 	"dependencies": {
+		"@atproto/api": "^0.14.7",
+		"@contentful/node-apps-toolkit": "^3.10.2",
 		"@contentful/rich-text-types": "^17.0.0",
 		"@netlify/functions": "^3.0.0",
-		"highlight.js": "^11.11.1",
-		"image2uri": "^2.1.2",
-		"piexifjs": "^1.0.6"
+		"highlight.js": "^11.11.1"
 	}
 }
